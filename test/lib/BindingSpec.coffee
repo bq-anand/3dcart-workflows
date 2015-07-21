@@ -19,7 +19,6 @@ describe "Binding", ->
           offset: 0
           limit: 10
         .spread (response, body) ->
-          console.log body
           # check body before response to make the test runner show more info in case of an error
           body.should.be.an("array")
           body.length.should.be.equal(10)
