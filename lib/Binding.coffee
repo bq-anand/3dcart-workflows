@@ -15,14 +15,14 @@ class Binding extends CommonBinding
       SecureUrl: @credential.url
       PrivateKey: @credential.privateKey
       Token: @credential.token
-    # TODO: find out how 3DCart responds with rate limit error
-    super(options)
-#    super(options).spread (response, body) ->
-#      if response.statusCode is 403
-#        throw new errors.RateLimitReachedError
-#          response: response
-#          body: body
-#      [response, body]
+    super
+    .spread (response, body) ->
+      if body[0]?.Key is "Error"
+        throw new errors.Http400Error
+          message: body[0].Message
+          response: response
+          body: body
+      [response, body]
 
   getOrders: (qs, options) ->
     @request _.extend
