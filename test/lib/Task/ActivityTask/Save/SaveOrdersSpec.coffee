@@ -11,7 +11,7 @@ createOrder = require "../../../../../lib/Model/Order"
 sample = require "#{process.env.ROOT_DIR}/test/fixtures/SaveOrders/sample.json"
 
 describe "SaveOrders", ->
-  knex = null; bookshelf = null; logger = null; Order = null; job = null; # shared between tests
+  knex = null; bookshelf = null; logger = null; Order = null; task = null; # shared between tests
 
   before (beforeDone) ->
     knex = createKnex settings.knex
@@ -29,7 +29,7 @@ describe "SaveOrders", ->
     .nodeify teardownDone
 
   beforeEach ->
-    job = new SaveOrders(
+    task = new SaveOrders(
       avatarId: "wuXMSggRPPmW4FiE9"
     ,
       input: new stream.PassThrough({objectMode: true})
@@ -39,9 +39,9 @@ describe "SaveOrders", ->
     )
 
   it "should run", ->
-    job.input.write(sample)
-    job.input.end()
-    job.execute()
+    task.input.write(sample)
+    task.input.end()
+    task.execute()
     .then ->
       knex(Order::tableName).count("id")
       .then (results) ->

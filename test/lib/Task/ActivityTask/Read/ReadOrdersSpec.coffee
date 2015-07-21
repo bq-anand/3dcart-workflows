@@ -10,7 +10,7 @@ Binding = require "../../../../../lib/Binding"
 ReadOrders = require "../../../../../lib/Task/ActivityTask/Read/ReadOrders"
 
 describe "ReadOrders", ->
-  binding = null; logger = null; job = null;
+  binding = null; logger = null; task = null;
 
   before ->
     binding = new Binding
@@ -18,7 +18,7 @@ describe "ReadOrders", ->
     logger = createLogger settings.logger
 
   beforeEach ->
-    job = new ReadOrders(
+    task = new ReadOrders(
       params:
         datestart: "09/10/2013"
         dateend: "09/15/2013"
@@ -33,13 +33,13 @@ describe "ReadOrders", ->
     @timeout(20000) if process.env.NOCK_BACK_MODE is "record"
     new Promise (resolve, reject) ->
       nock.back "test/fixtures/ReadOrders/run.json", (recordingDone) ->
-        sinon.spy(job.output, "write")
-        sinon.spy(job.binding, "request")
-        job.execute()
+        sinon.spy(task.output, "write")
+        sinon.spy(task.binding, "request")
+        task.execute()
         .then ->
-          job.binding.request.should.have.callCount(5)
-          job.output.write.should.have.callCount(306)
-          job.output.write.should.always.have.been.calledWithMatch sinon.match (object) ->
+          task.binding.request.should.have.callCount(5)
+          task.output.write.should.have.callCount(306)
+          task.output.write.should.always.have.been.calledWithMatch sinon.match (object) ->
             if not object.hasOwnProperty("OrderID")
               console.log object
             object.hasOwnProperty("OrderID")

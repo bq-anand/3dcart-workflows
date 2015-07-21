@@ -12,7 +12,7 @@ createOrder = require "../../../../../lib/Model/Order"
 sample = require "#{process.env.ROOT_DIR}/test/fixtures/SaveOrders/sample.json"
 
 describe "DownloadOrders", ->
-  binding = null; knex = null; bookshelf = null; logger = null; Order = null; job = null; # shared between tests
+  binding = null; knex = null; bookshelf = null; logger = null; Order = null; task = null; # shared between tests
 
   before (beforeDone) ->
     knex = createKnex settings.knex
@@ -32,7 +32,7 @@ describe "DownloadOrders", ->
     binding = new Binding(
       credential: settings.credentials.bellefit
     )
-    job = new DownloadOrders(
+    task = new DownloadOrders(
       ReadOrders:
         avatarId: "wuXMSggRPPmW4FiE9"
         params:
@@ -53,7 +53,7 @@ describe "DownloadOrders", ->
     @timeout(10000)
     new Promise (resolve, reject) ->
       nock.back "test/fixtures/ReadOrders/run.json", (recordingDone) ->
-        job.execute()
+        task.execute()
         .then ->
           knex(Order::tableName).count("id")
           .then (results) ->
