@@ -10,9 +10,9 @@ module.exports = (bookshelf) ->
       buildTable: (table) ->
         table.increments()
         table.string("InvoiceNumberPrefix").nullable()
-        table.bigInteger("InvoiceNumber").nullable()
-        table.bigInteger("OrderStatusID").nullable()
-        table.bigInteger("CustomerID").nullable()
+        table.integer("InvoiceNumber").nullable()
+        table.integer("OrderStatusID").nullable()
+        table.integer("CustomerID").nullable()
         table.string("UserID").nullable()
         table.string("SalesPerson").nullable()
         table.string("BillingFirstName").nullable()
@@ -52,10 +52,10 @@ module.exports = (bookshelf) ->
         table.text("CustomerComments").nullable()
         table.text("InternalComments").nullable()
         table.text("ExternalComments").nullable()
-        table.json("ShipmentList", true).nullable()
-        table.json("OrderItemList", true).nullable()
-        table.json("TransactionList", true).nullable()
-        table.json("QuestionList", true).nullable()
+        table.specificType("ShipmentList", "jsonb[]").nullable() # simple jsonb() wouldn't suffice, because the field is actually an array
+        table.specificType("OrderItemList", "jsonb[]").nullable()
+        table.specificType("TransactionList", "jsonb[]").nullable()
+        table.specificType("QuestionList", "jsonb[]").nullable()
         table.dateTime("OrderDate").notNullable()  # native 3DCart _createdAt
         table.dateTime("LastUpdate").notNullable()  # native 3DCart _updatedAt
         table.bigInteger("_uid").notNullable().unsigned() # native 3DCart id

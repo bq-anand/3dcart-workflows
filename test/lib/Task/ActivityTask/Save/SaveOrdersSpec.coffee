@@ -49,4 +49,4 @@ describe "SaveOrders", ->
     .then ->
       Order.where({id: 1}).fetch()
       .then (model) ->
-        model.get("email").should.be.equal("example@example.com")
+        model.get("InvoiceNumber").should.be.equal(24545)
