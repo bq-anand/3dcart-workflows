@@ -1,83 +1,68 @@
-#_ = require "underscore"
-#Promise = require "bluebird"
-#stream = require "readable-stream"
-#createLogger = require "../../../../../core/helper/logger"
-#createKnex = require "../../../../../core/helper/knex"
-#createBookshelf = require "../../../../../core/helper/bookshelf"
-#settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
-#
-#Binding = require "../../../../../lib/Binding"
-#DownloadUsers = require "../../../../../lib/Task/ActivityTask/Download/DownloadUsers"
-#createUser = require "../../../../../lib/Model/User"
-#
-#describe "DownloadUsers", ->
-#  binding = null; knex = null; bookshelf = null; logger = null; User = null; job = null; # shared between tests
-#
-#  before (beforeDone) ->
-#    knex = createKnex settings.knex
-#    bookshelf = createBookshelf knex
-#    logger = createLogger settings.logger
-#    User = createUser bookshelf
-#    Promise.bind(@)
-#    .then -> knex.raw("SET search_path TO pg_temp")
-#    .then -> User.createTable()
-#    .nodeify beforeDone
-#
-#  after (teardownDone) ->
-#    knex.destroy()
-#    .nodeify teardownDone
-#
-#  beforeEach (setupDone) ->
-#    binding = new Binding(
-#      credential: settings.credentials.denis
-#    )
-#    job = new DownloadUsers(
-#      ReadUsers:
-#        avatarId: "wuXMSggRPPmW4FiE9"
-#      SaveUsers:
-#        avatarId: "wuXMSggRPPmW4FiE9"
-#    ,
-#      input: new stream.PassThrough({objectMode: true})
-#      output: new stream.PassThrough({objectMode: true})
-#      binding: binding
-#      bookshelf: bookshelf
-#      logger: logger
-#    )
-#    setupDone()
-#
-#  it "should run", (testDone) ->
-#    nock.back "test/fixtures/ReadUsersNormalOperation.json", (recordingDone) =>
-#      done = (error) -> recordingDone(); testDone(error)
-#      job.execute()
-#      .then ->
-#        knex(User::tableName).count("id")
-#        .then (results) ->
-#          results[0].count.should.be.equal("934")
-#      .then ->
-#        User.where({email: "a.sweno@hotmail.com"}).fetch()
-#        .then (model) ->
-#          should.exist(model)
-#          model.get("email").should.be.equal("a.sweno@hotmail.com")
-#      .nodeify done
-#      job.input.write(
-#        id: 1
-#        email: "example@example.com"
-#        active: true
-#        deleted: true
-#        created_at: new Date()
-#        updated_at: new Date()
-#      )
-#      job.input.end()
-##      job.run()
-##      job.on "data", onData
-##      job.on "end", ->
-##        try
-##          request.should.have.callCount(20)
-##          onData.should.have.callCount(934)
-##          onData.should.always.have.been.calledWithMatch sinon.match (object) ->
-##            object.hasOwnProperty("email")
-##          , "Object has own property \"email\""
-##          done()
-##        catch error
-##          done(error)
-##      job.on "error", done
+_ = require "underscore"
+Promise = require "bluebird"
+stream = require "readable-stream"
+createLogger = require "../../../../../core/helper/logger"
+createKnex = require "../../../../../core/helper/knex"
+createBookshelf = require "../../../../../core/helper/bookshelf"
+settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
+
+Binding = require "../../../../../lib/Binding"
+DownloadOrders = require "../../../../../lib/Task/ActivityTask/Download/DownloadOrders"
+createOrder = require "../../../../../lib/Model/Order"
+sample = require "#{process.env.ROOT_DIR}/test/fixtures/SaveOrders/sample.json"
+
+describe "DownloadOrders", ->
+  binding = null; knex = null; bookshelf = null; logger = null; Order = null; job = null; # shared between tests
+
+  before (beforeDone) ->
+    knex = createKnex settings.knex
+    bookshelf = createBookshelf knex
+    logger = createLogger settings.logger
+    Order = createOrder bookshelf
+    Promise.bind(@)
+    .then -> knex.raw("SET search_path TO pg_temp")
+    .then -> Order.createTable()
+    .nodeify beforeDone
+
+  after (teardownDone) ->
+    knex.destroy()
+    .nodeify teardownDone
+
+  beforeEach ->
+    binding = new Binding(
+      credential: settings.credentials.bellefit
+    )
+    job = new DownloadOrders(
+      ReadOrders:
+        avatarId: "wuXMSggRPPmW4FiE9"
+        params:
+          datestart: "09/10/2013"
+          dateend: "09/15/2013"
+      SaveOrders:
+        avatarId: "wuXMSggRPPmW4FiE9"
+        params: {}
+    ,
+      input: new stream.PassThrough({objectMode: true})
+      output: new stream.PassThrough({objectMode: true})
+      binding: binding
+      bookshelf: bookshelf
+      logger: logger
+    )
+
+  it "should run", ->
+    @timeout(10000)
+    new Promise (resolve, reject) ->
+      nock.back "test/fixtures/ReadOrders/run.json", (recordingDone) ->
+        job.execute()
+        .then ->
+          knex(Order::tableName).count("id")
+          .then (results) ->
+            results[0].count.should.be.equal("306")
+        .then ->
+          Order.where({InvoiceNumber: 24545}).fetch()
+          .then (model) ->
+            should.exist(model)
+            model.get("BillingFirstName").should.be.equal("Alondra")
+        .then resolve
+        .catch reject
+        .finally recordingDone

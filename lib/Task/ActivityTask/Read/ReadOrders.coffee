@@ -14,6 +14,7 @@ class ReadOrders extends Read
     .then @getTotal
     .then @readChapter
     .all()
+    .then -> @output.end()
   readChapter: (total) ->
     offset = 1
     pages = []
