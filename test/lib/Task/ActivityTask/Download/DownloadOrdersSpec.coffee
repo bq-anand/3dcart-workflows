@@ -42,8 +42,8 @@ describe "DownloadOrders", ->
         avatarId: "wuXMSggRPPmW4FiE9"
         params: {}
     ,
-      input: new stream.PassThrough({objectMode: true})
-      output: new stream.PassThrough({objectMode: true})
+      in: new stream.PassThrough({objectMode: true})
+      out: new stream.PassThrough({objectMode: true})
       binding: binding
       bookshelf: bookshelf
       logger: logger

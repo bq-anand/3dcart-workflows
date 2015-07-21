@@ -32,15 +32,15 @@ describe "SaveOrders", ->
     task = new SaveOrders(
       avatarId: "wuXMSggRPPmW4FiE9"
     ,
-      input: new stream.PassThrough({objectMode: true})
-      output: new stream.PassThrough({objectMode: true})
+      in: new stream.PassThrough({objectMode: true})
+      out: new stream.PassThrough({objectMode: true})
       bookshelf: bookshelf
       logger: logger
     )
 
   it "should run", ->
-    task.input.write(sample)
-    task.input.end()
+    task.in.write(sample)
+    task.in.end()
     task.execute()
     .then ->
       knex(Order::tableName).count("id")

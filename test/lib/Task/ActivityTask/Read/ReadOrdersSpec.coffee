@@ -23,8 +23,8 @@ describe "ReadOrders", ->
         datestart: "09/10/2013"
         dateend: "09/15/2013"
     ,
-      input: new stream.Readable({objectMode: true})
-      output: new stream.PassThrough({objectMode: true})
+      in: new stream.Readable({objectMode: true})
+      out: new stream.PassThrough({objectMode: true})
       binding: binding
       logger: logger
     )
@@ -33,13 +33,13 @@ describe "ReadOrders", ->
     @timeout(20000) if process.env.NOCK_BACK_MODE is "record"
     new Promise (resolve, reject) ->
       nock.back "test/fixtures/ReadOrders/run.json", (recordingDone) ->
-        sinon.spy(task.output, "write")
+        sinon.spy(task.out, "write")
         sinon.spy(task.binding, "request")
         task.execute()
         .then ->
           task.binding.request.should.have.callCount(5)
-          task.output.write.should.have.callCount(306)
-          task.output.write.should.always.have.been.calledWithMatch sinon.match (object) ->
+          task.out.write.should.have.callCount(306)
+          task.out.write.should.always.have.been.calledWithMatch sinon.match (object) ->
             if not object.hasOwnProperty("OrderID")
               console.log object
             object.hasOwnProperty("OrderID")
