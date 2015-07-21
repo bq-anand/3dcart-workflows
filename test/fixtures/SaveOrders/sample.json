@@ -19,7 +19,7 @@
   "BillingZipCode": "91364",
   "BillingCountry": "US",
   "BillingPhoneNumber": "8186949259",
-  "BillingEmail": "jlmjr.med@gmail.com",
+  "BillingEmail": "example@example.com",
   "BillingPaymentMethod": "Secure Online Payment",
   "BillingOnLinePayment": true,
   "BillingPaymentMethodID": "13",
