@@ -2,27 +2,31 @@ _ = require "underscore"
 Promise = require "bluebird"
 stream = require "readable-stream"
 createLogger = require "../../../../../core/helper/logger"
-Binding = require "../../../../../lib/Binding"
-ReadOrders = require "../../../../../lib/Task/ActivityTask/Read/ReadOrders"
+createKnex = require "../../../../../core/helper/knex"
+createBookshelf = require "../../../../../core/helper/bookshelf"
 settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
-describe "ReadOrders", ->
-  job = null; binding = null;
+Binding = require "../../../../../lib/Binding"
+ReadOrders = require "../../../../../lib/Task/ActivityTask/Read/ReadOrders"
 
-  dependencies = ->
-    binding: new Binding
+describe "ReadOrders", ->
+  binding = null; logger = null; job = null;
+
+  before ->
+    binding = new Binding
       credential: settings.credentials.bellefit
-    logger: createLogger settings.logger
+    logger = createLogger settings.logger
 
   beforeEach ->
-
     job = new ReadOrders(
       params:
         datestart: "09/10/2013"
         dateend: "09/15/2013"
-    , _.extend dependencies(),
+    ,
       input: new stream.Readable({objectMode: true})
       output: new stream.PassThrough({objectMode: true})
+      binding: binding
+      logger: logger
     )
 
   it "should run", ->

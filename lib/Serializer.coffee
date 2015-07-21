@@ -6,4 +6,9 @@ class Serializer extends BaseSerializer
   constructor: (options) ->
     super
 
+  keymap: ->
+    "OrderID": "_uid"
+
+  dateFormat: -> "YYYY-MM-DDTHH:mm:ss"
+
 module.exports = Serializer

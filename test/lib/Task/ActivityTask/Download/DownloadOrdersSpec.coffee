@@ -1,18 +1,23 @@
+#_ = require "underscore"
 #Promise = require "bluebird"
 #stream = require "readable-stream"
-#helpers = require "../../../../../core/test/helpers"
-#Binding = require "../../../../../lib/Binding"
-#DownloadOrders = require "../../../../../lib/Task/ActivityTask/Download/DownloadOrders"
-#createUser = require "../../../../../lib/Model/Order"
+#createLogger = require "../../../../../core/helper/logger"
+#createKnex = require "../../../../../core/helper/knex"
+#createBookshelf = require "../../../../../core/helper/bookshelf"
 #settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 #
-#describe "DownloadOrders", ->
-#  job = null; binding = null; knex = null; bookshelf = null; User = null; job = null; # shared between tests
+#Binding = require "../../../../../lib/Binding"
+#DownloadUsers = require "../../../../../lib/Task/ActivityTask/Download/DownloadUsers"
+#createUser = require "../../../../../lib/Model/User"
+#
+#describe "DownloadUsers", ->
+#  binding = null; knex = null; bookshelf = null; logger = null; User = null; job = null; # shared between tests
 #
 #  before (beforeDone) ->
-#    knex = helpers.createKnex()
-#    bookshelf = helpers.createBookshelf(knex)
-#    User = createUser(bookshelf)
+#    knex = createKnex settings.knex
+#    bookshelf = createBookshelf knex
+#    logger = createLogger settings.logger
+#    User = createUser bookshelf
 #    Promise.bind(@)
 #    .then -> knex.raw("SET search_path TO pg_temp")
 #    .then -> User.createTable()
@@ -24,23 +29,24 @@
 #
 #  beforeEach (setupDone) ->
 #    binding = new Binding(
-#      credential: settings.credentials.bellefit
+#      credential: settings.credentials.denis
 #    )
-#    job = new DownloadOrders(
-#      ReadOrders:
+#    job = new DownloadUsers(
+#      ReadUsers:
 #        avatarId: "wuXMSggRPPmW4FiE9"
-#      SaveOrders:
+#      SaveUsers:
 #        avatarId: "wuXMSggRPPmW4FiE9"
 #    ,
-#      binding: binding
-#      bookshelf: bookshelf
 #      input: new stream.PassThrough({objectMode: true})
 #      output: new stream.PassThrough({objectMode: true})
+#      binding: binding
+#      bookshelf: bookshelf
+#      logger: logger
 #    )
 #    setupDone()
 #
 #  it "should run", (testDone) ->
-#    nock.back "test/fixtures/ReadOrdersNormalOperation.json", (recordingDone) =>
+#    nock.back "test/fixtures/ReadUsersNormalOperation.json", (recordingDone) =>
 #      done = (error) -> recordingDone(); testDone(error)
 #      job.execute()
 #      .then ->

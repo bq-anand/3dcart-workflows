@@ -1,61 +1,52 @@
-#stream = require "readable-stream"
-#Promise = require "bluebird"
-#execAsync = Promise.promisify (require "child_process").exec
-#SaveOrders = require "../../../../../lib/Task/ActivityTask/Save/SaveOrders"
-#helpers = require "../../../../../core/test/helpers"
-#createUser = require "../../../../../lib/Model/Order"
-#settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
-#
-#exec = (require "child_process").exec
-#
-#
-#describe "SaveOrders", ->
-#  knex = null; bookshelf = null; User = null; job = null; # shared between tests
-#
-#  before (beforeDone) ->
-#    knex = helpers.createKnex()
-#    bookshelf = helpers.createBookshelf(knex)
-#    User = createUser(bookshelf)
-#    Promise.bind(@)
-#    .then -> knex.raw("SET search_path TO pg_temp")
-#    .then -> User.createTable()
-#    .nodeify beforeDone
-#
-#  after (teardownDone) ->
-#    knex.destroy()
-#    .nodeify teardownDone
-#
-#  beforeEach (setupDone) ->
-##    execAsync "pg_tmp 2>/dev/null"
-##    .spread (postgresUrl) ->
-#      job = new SaveOrders(
-#        avatarId: "wuXMSggRPPmW4FiE9"
-#      ,
-#        bookshelf: bookshelf
-#        input: new stream.PassThrough({objectMode: true})
-#        output: new stream.PassThrough({objectMode: true})
-#      )
-#      setupDone()
-##    .nodeify(setupDone)
-#
-#  it "should run", (testDone) ->
-#    job.execute()
-#    .then ->
-#      knex(User::tableName).count("id")
-#      .then (results) ->
-#        results[0].count.should.be.equal("1")
-#    .then ->
-#      User.where({id: 1}).fetch()
-#      .then (model) ->
-#        model.get("email").should.be.equal("example@example.com")
-#    .nodeify testDone
-#    job.input.write(
-#      id: 1
-#      email: "example@example.com"
-#      active: true
-#      deleted: true
-#      helpdesk_agent: false
-#      created_at: new Date()
-#      updated_at: new Date()
-#    )
-#    job.input.end()
+_ = require "underscore"
+Promise = require "bluebird"
+stream = require "readable-stream"
+createLogger = require "../../../../../core/helper/logger"
+createKnex = require "../../../../../core/helper/knex"
+createBookshelf = require "../../../../../core/helper/bookshelf"
+settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
+
+SaveOrders = require "../../../../../lib/Task/ActivityTask/Save/SaveOrders"
+createOrder = require "../../../../../lib/Model/Order"
+sample = require "#{process.env.ROOT_DIR}/test/fixtures/SaveOrders/sample.json"
+
+describe "SaveOrders", ->
+  knex = null; bookshelf = null; logger = null; Order = null; job = null; # shared between tests
+
+  before (beforeDone) ->
+    knex = createKnex settings.knex
+    knex.Promise.longStackTraces()
+    bookshelf = createBookshelf knex
+    logger = createLogger settings.logger
+    Order = createOrder bookshelf
+    Promise.bind(@)
+    .then -> knex.raw("SET search_path TO pg_temp")
+    .then -> Order.createTable()
+    .nodeify beforeDone
+
+  after (teardownDone) ->
+    knex.destroy()
+    .nodeify teardownDone
+
+  beforeEach ->
+    job = new SaveOrders(
+      avatarId: "wuXMSggRPPmW4FiE9"
+    ,
+      input: new stream.PassThrough({objectMode: true})
+      output: new stream.PassThrough({objectMode: true})
+      bookshelf: bookshelf
+      logger: logger
+    )
+
+  it "should run", ->
+    job.input.write(sample)
+    job.input.end()
+    job.execute()
+    .then ->
+      knex(Order::tableName).count("id")
+      .then (results) ->
+        results[0].count.should.be.equal("1")
+    .then ->
+      Order.where({id: 1}).fetch()
+      .then (model) ->
+        model.get("email").should.be.equal("example@example.com")
