@@ -5,10 +5,10 @@
     "defaultTaskList": {
       "name": "3DCartReadOrders"
     },
-    "defaultTaskHeartbeatTimeout": "600000",
+    "defaultTaskHeartbeatTimeout": "1800000",
     "defaultTaskPriority": "0",
-    "defaultTaskScheduleToStartTimeout": "1800000",
-    "defaultTaskStartToCloseTimeout": "600000",
+    "defaultTaskScheduleToStartTimeout": "3600000",
+    "defaultTaskStartToCloseTimeout": "1800000",
     "defaultTaskScheduleToCloseTimeout": "NONE",
     "description": ""
   },
@@ -31,10 +31,10 @@
     "defaultTaskList": {
       "name": "3DCartDownloadOrders"
     },
-    "defaultTaskHeartbeatTimeout": "600000",
+    "defaultTaskHeartbeatTimeout": "1800000",
     "defaultTaskPriority": "0",
-    "defaultTaskScheduleToStartTimeout": "1800000",
-    "defaultTaskStartToCloseTimeout": "600000",
+    "defaultTaskScheduleToStartTimeout": "3600000",
+    "defaultTaskStartToCloseTimeout": "1800000",
     "defaultTaskScheduleToCloseTimeout": "NONE",
     "description": ""
   }
