@@ -1,8 +1,8 @@
 _ = require "underscore"
 _.mixin require "underscore.deep"
-BaseSerializer = require "../core/lib/Serializer"
+Serializer = require "../core/lib/Serializer"
 
-class Serializer extends BaseSerializer
+class _3DCartSerializer extends Serializer
   constructor: (options) ->
     super
 
@@ -11,4 +11,4 @@ class Serializer extends BaseSerializer
 
   dateFormat: -> "YYYY-MM-DDTHH:mm:ss"
 
-module.exports = Serializer
+module.exports = _3DCartSerializer

@@ -6,19 +6,19 @@ createKnex = require "../../../../../core/helper/knex"
 createBookshelf = require "../../../../../core/helper/bookshelf"
 settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
-Binding = require "../../../../../lib/Binding"
-ReadOrders = require "../../../../../lib/Task/ActivityTask/Read/ReadOrders"
+_3DCartBinding = require "../../../../../lib/_3DCartBinding"
+_3DCartReadOrders = require "../../../../../lib/Task/ActivityTask/Read/_3DCartReadOrders"
 
-describe "ReadOrders", ->
+describe "_3DCartReadOrders", ->
   binding = null; logger = null; task = null;
 
   before ->
-    binding = new Binding
+    binding = new _3DCartBinding
       credential: settings.credentials.bellefit
     logger = createLogger settings.logger
 
   beforeEach ->
-    task = new ReadOrders(
+    task = new _3DCartReadOrders(
       params:
         datestart: "09/10/2013"
         dateend: "09/15/2013"
@@ -34,7 +34,7 @@ describe "ReadOrders", ->
   it "should run", ->
     @timeout(20000) if process.env.NOCK_BACK_MODE is "record"
     new Promise (resolve, reject) ->
-      nock.back "test/fixtures/ReadOrders/run.json", (recordingDone) ->
+      nock.back "test/fixtures/_3DCartReadOrders/normal.json", (recordingDone) ->
         sinon.spy(task.out, "write")
         sinon.spy(task.binding, "request")
         task.execute()

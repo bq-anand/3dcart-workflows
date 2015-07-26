@@ -1,20 +1,20 @@
 _ = require "underscore"
 Promise = require "bluebird"
-Binding = require "../../lib/Binding"
+_3DCartBinding = require "../../lib/_3DCartBinding"
 settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
-describe "Binding", ->
+describe "_3DCartBinding", ->
   @timeout(10000) if process.env.NOCK_BACK_MODE is "record"
 
   binding = null
 
   beforeEach ->
-    binding = new Binding
+    binding = new _3DCartBinding
       credential: settings.credentials.bellefit
 
   it "binding.getOrders() :: GET /Orders", ->
     new Promise (resolve, reject) ->
-      nock.back "test/fixtures/Binding/getOrders.json", (recordingDone) ->
+      nock.back "test/fixtures/_3DCartBinding/getOrders.json", (recordingDone) ->
         binding.getOrders
           offset: 0
           limit: 10

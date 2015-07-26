@@ -1,9 +1,9 @@
 [
   {
-    "name": "3DCartReadOrders",
+    "name": "_3DCartReadOrders",
     "version": "1.0.0",
     "defaultTaskList": {
-      "name": "3DCartReadOrders"
+      "name": "_3DCartReadOrders"
     },
     "defaultTaskHeartbeatTimeout": "1800000",
     "defaultTaskPriority": "0",
@@ -13,10 +13,10 @@
     "description": ""
   },
   {
-    "name": "3DCartSaveOrders",
+    "name": "_3DCartSaveOrders",
     "version": "1.0.0",
     "defaultTaskList": {
-      "name": "3DCartSaveOrders"
+      "name": "_3DCartSaveOrders"
     },
     "defaultTaskHeartbeatTimeout": "600000",
     "defaultTaskPriority": "0",
@@ -26,10 +26,10 @@
     "description": ""
   },
   {
-    "name": "3DCartDownloadOrders",
+    "name": "_3DCartDownloadOrders",
     "version": "1.0.0",
     "defaultTaskList": {
-      "name": "3DCartDownloadOrders"
+      "name": "_3DCartDownloadOrders"
     },
     "defaultTaskHeartbeatTimeout": "1800000",
     "defaultTaskPriority": "0",

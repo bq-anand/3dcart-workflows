@@ -6,12 +6,12 @@ createKnex = require "../../../../../core/helper/knex"
 createBookshelf = require "../../../../../core/helper/bookshelf"
 settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
-Binding = require "../../../../../lib/Binding"
-DownloadOrders = require "../../../../../lib/Task/ActivityTask/Download/DownloadOrders"
-createOrder = require "../../../../../lib/Model/Order"
-sample = require "#{process.env.ROOT_DIR}/test/fixtures/SaveOrders/sample.json"
+Binding = require "../../../../../lib/_3DCartBinding"
+_3DCartDownloadOrders = require "../../../../../lib/Task/ActivityTask/Download/_3DCartDownloadOrders"
+createOrder = require "../../../../../lib/Model/_3DCartOrder"
+sample = require "#{process.env.ROOT_DIR}/test/fixtures/_3DCartSaveOrders/sample.json"
 
-describe "DownloadOrders", ->
+describe "_3DCartDownloadOrders", ->
   binding = null; knex = null; bookshelf = null; logger = null; Order = null; task = null; # shared between tests
 
   before (beforeDone) ->
@@ -32,14 +32,14 @@ describe "DownloadOrders", ->
     binding = new Binding(
       credential: settings.credentials.bellefit
     )
-    task = new DownloadOrders(
-      ReadOrders:
+    task = new _3DCartDownloadOrders(
+      _3DCartReadOrders:
         input:
           avatarId: "wuXMSggRPPmW4FiE9"
           params:
             datestart: "09/10/2013"
             dateend: "09/15/2013"
-      SaveOrders:
+      _3DCartSaveOrders:
         input:
           avatarId: "wuXMSggRPPmW4FiE9"
           params: {}
@@ -56,7 +56,7 @@ describe "DownloadOrders", ->
   it "should run", ->
     @timeout(10000)
     new Promise (resolve, reject) ->
-      nock.back "test/fixtures/ReadOrders/run.json", (recordingDone) ->
+      nock.back "test/fixtures/_3DCartReadOrders/normal.json", (recordingDone) ->
         task.execute()
         .then ->
           knex(Order::tableName).count("id")

@@ -1,9 +1,9 @@
 _ = require "underscore"
 errors = require "../helper/errors"
-CommonBinding = require "../core/lib/Binding"
+Binding = require "../core/lib/Binding"
 BasicAuthentication = require "../core/lib/Authentication/BasicAuthentication"
 
-class Binding extends CommonBinding
+class _3DCartBinding extends Binding
 
   request: (options) ->
     _.defaults options,
@@ -31,4 +31,4 @@ class Binding extends CommonBinding
       qs: qs
     , options
 
-module.exports = Binding
+module.exports = _3DCartBinding

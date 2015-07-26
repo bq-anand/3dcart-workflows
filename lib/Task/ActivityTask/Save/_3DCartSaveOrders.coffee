@@ -1,8 +1,8 @@
 UpsertThroughTemporaryTable = require "../../../../core/lib/Task/ActivityTask/Save/UpsertThroughTemporaryTable"
-createUser = require "../../../Model/Order"
-Serializer = require "../../../Serializer"
+createUser = require "../../../Model/_3DCartOrder"
+Serializer = require "../../../_3DCartSerializer"
 
-class SaveOrders extends UpsertThroughTemporaryTable
+class _3DCartSaveOrders extends UpsertThroughTemporaryTable
   createModel: -> createUser(@bookshelf)
   createSerializer: -> new Serializer({model: @model})
 
@@ -13,4 +13,4 @@ class SaveOrders extends UpsertThroughTemporaryTable
     else
       false
 
-module.exports = SaveOrders
+module.exports = _3DCartSaveOrders

@@ -6,11 +6,11 @@ createKnex = require "../../../../../core/helper/knex"
 createBookshelf = require "../../../../../core/helper/bookshelf"
 settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
-SaveOrders = require "../../../../../lib/Task/ActivityTask/Save/SaveOrders"
-createOrder = require "../../../../../lib/Model/Order"
-sample = require "#{process.env.ROOT_DIR}/test/fixtures/SaveOrders/sample.json"
+_3DCartSaveOrders = require "../../../../../lib/Task/ActivityTask/Save/_3DCartSaveOrders"
+createOrder = require "../../../../../lib/Model/_3DCartOrder"
+sample = require "#{process.env.ROOT_DIR}/test/fixtures/_3DCartSaveOrders/sample.json"
 
-describe "SaveOrders", ->
+describe "_3DCartSaveOrders", ->
   knex = null; bookshelf = null; logger = null; Order = null; task = null; # shared between tests
 
   before (beforeDone) ->
@@ -29,7 +29,7 @@ describe "SaveOrders", ->
     .nodeify teardownDone
 
   beforeEach ->
-    task = new SaveOrders(
+    task = new _3DCartSaveOrders(
       avatarId: "wuXMSggRPPmW4FiE9"
     ,
       {}
