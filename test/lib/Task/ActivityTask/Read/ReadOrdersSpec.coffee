@@ -23,6 +23,8 @@ describe "ReadOrders", ->
         datestart: "09/10/2013"
         dateend: "09/15/2013"
     ,
+      {}
+    ,
       in: new stream.Readable({objectMode: true})
       out: new stream.PassThrough({objectMode: true})
       binding: binding

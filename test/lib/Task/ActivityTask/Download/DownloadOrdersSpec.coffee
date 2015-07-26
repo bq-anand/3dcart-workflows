@@ -34,13 +34,17 @@ describe "DownloadOrders", ->
     )
     task = new DownloadOrders(
       ReadOrders:
-        avatarId: "wuXMSggRPPmW4FiE9"
-        params:
-          datestart: "09/10/2013"
-          dateend: "09/15/2013"
+        input:
+          avatarId: "wuXMSggRPPmW4FiE9"
+          params:
+            datestart: "09/10/2013"
+            dateend: "09/15/2013"
       SaveOrders:
-        avatarId: "wuXMSggRPPmW4FiE9"
-        params: {}
+        input:
+          avatarId: "wuXMSggRPPmW4FiE9"
+          params: {}
+    ,
+      {}
     ,
       in: new stream.PassThrough({objectMode: true})
       out: new stream.PassThrough({objectMode: true})

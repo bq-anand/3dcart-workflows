@@ -6,12 +6,12 @@ ReadOrders = require "../Read/ReadOrders"
 SaveOrders = require "../Save/SaveOrders"
 
 class DownloadOrders extends Download
-  constructor: (options, dependencies) ->
-    Match.check options,
+  constructor: (input, options, dependencies) ->
+    Match.check input,
       ReadOrders: Object
       SaveOrders: Object
-    super options, _.extend {}, dependencies,
-      read: new ReadOrders options.ReadOrders, dependencies
-      save: new SaveOrders options.SaveOrders, dependencies
+    super input, options, _.extend {}, dependencies,
+      read: new ReadOrders input.ReadOrders.input, input.ReadOrders, dependencies
+      save: new SaveOrders input.SaveOrders.input, input.SaveOrders, dependencies
 
 module.exports = DownloadOrders

@@ -3,8 +3,8 @@ Promise = require "bluebird"
 LimitOffset = require "../../../../core/lib/Task/ActivityTask/Read/LimitOffset"
 
 class ReadOrders extends LimitOffset
-  constructor: (options, dependencies) ->
-    _.defaults options,
+  constructor: (input, options, dependencies) ->
+    _.defaults input,
       offset: 1
     super
 
