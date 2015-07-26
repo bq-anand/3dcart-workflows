@@ -7,7 +7,7 @@ createBookshelf = require "../../core/helper/bookshelf"
 settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
 _3DCartSerializer = require "../../lib/_3DCartSerializer"
-create_3DCartOrder = require "../../lib/Model/_3DCartOrder"
+create_3DCartOrders = require "../../lib/Model/_3DCartOrders"
 sample = require "#{process.env.ROOT_DIR}/test/fixtures/_3DCartSaveOrders/sample.json"
 
 describe "Serializer", ->
@@ -16,7 +16,7 @@ describe "Serializer", ->
   before (beforeDone) ->
     knex = createKnex settings.knex
     bookshelf = createBookshelf knex
-    _3DCartOrder = create_3DCartOrder bookshelf
+    _3DCartOrder = create_3DCartOrders bookshelf
     beforeDone()
 
   after (teardownDone) ->

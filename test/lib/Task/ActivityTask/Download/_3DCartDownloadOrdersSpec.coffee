@@ -8,7 +8,7 @@ settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_D
 
 Binding = require "../../../../../lib/_3DCartBinding"
 _3DCartDownloadOrders = require "../../../../../lib/Task/ActivityTask/Download/_3DCartDownloadOrders"
-createOrder = require "../../../../../lib/Model/_3DCartOrder"
+createOrder = require "../../../../../lib/Model/_3DCartOrders"
 sample = require "#{process.env.ROOT_DIR}/test/fixtures/_3DCartSaveOrders/sample.json"
 
 describe "_3DCartDownloadOrders", ->

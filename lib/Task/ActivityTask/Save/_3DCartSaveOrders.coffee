@@ -1,5 +1,5 @@
 UpsertThroughTemporaryTable = require "../../../../core/lib/Task/ActivityTask/Save/UpsertThroughTemporaryTable"
-createUser = require "../../../Model/_3DCartOrder"
+createUser = require "../../../Model/_3DCartOrders"
 Serializer = require "../../../_3DCartSerializer"
 
 class _3DCartSaveOrders extends UpsertThroughTemporaryTable

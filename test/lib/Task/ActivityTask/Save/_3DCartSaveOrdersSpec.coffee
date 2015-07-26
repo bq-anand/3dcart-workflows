@@ -7,21 +7,21 @@ createBookshelf = require "../../../../../core/helper/bookshelf"
 settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
 _3DCartSaveOrders = require "../../../../../lib/Task/ActivityTask/Save/_3DCartSaveOrders"
-createOrder = require "../../../../../lib/Model/_3DCartOrder"
+create_3DCartOrders = require "../../../../../lib/Model/_3DCartOrders"
 sample = require "#{process.env.ROOT_DIR}/test/fixtures/_3DCartSaveOrders/sample.json"
 
 describe "_3DCartSaveOrders", ->
-  knex = null; bookshelf = null; logger = null; Order = null; task = null; # shared between tests
+  knex = null; bookshelf = null; logger = null; _3DCartOrders = null; task = null; # shared between tests
 
   before (beforeDone) ->
     knex = createKnex settings.knex
     knex.Promise.longStackTraces()
     bookshelf = createBookshelf knex
     logger = createLogger settings.logger
-    Order = createOrder bookshelf
+    _3DCartOrders = create_3DCartOrders bookshelf
     Promise.bind(@)
     .then -> knex.raw("SET search_path TO pg_temp")
-    .then -> Order.createTable()
+    .then -> _3DCartOrders.createTable()
     .nodeify beforeDone
 
   after (teardownDone) ->
@@ -45,10 +45,10 @@ describe "_3DCartSaveOrders", ->
     task.in.end()
     task.execute()
     .then ->
-      knex(Order::tableName).count("id")
+      knex(_3DCartOrders::tableName).count("id")
       .then (results) ->
         results[0].count.should.be.equal("1")
     .then ->
-      Order.where({id: 1}).fetch()
+      _3DCartOrders.where({id: 1}).fetch()
       .then (model) ->
         model.get("InvoiceNumber").should.be.equal(24545)

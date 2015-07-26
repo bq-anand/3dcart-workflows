@@ -3,7 +3,7 @@ helper = require "../../core/helper/model"
 
 module.exports = (bookshelf) ->
   bookshelf.Model.extend
-    tableName: "3DCartOrders"
+    tableName: "_3DCartOrders"
     hasTimestamps: ['_createdAt', '_updatedAt']
   ,
     _.extend helper(bookshelf),
