@@ -8,7 +8,7 @@ settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_D
 
 Binding = require "../../../../../lib/_3DCartBinding"
 _3DCartDownloadOrders = require "../../../../../lib/Task/ActivityTask/Download/_3DCartDownloadOrders"
-createOrder = require "../../../../../lib/Model/_3DCartOrders"
+create_3DCartOrders = require "../../../../../lib/Model/_3DCartOrders"
 sample = require "#{process.env.ROOT_DIR}/test/fixtures/_3DCartSaveOrders/sample.json"
 
 describe "_3DCartDownloadOrders", ->
@@ -18,7 +18,7 @@ describe "_3DCartDownloadOrders", ->
     knex = createKnex settings.knex
     bookshelf = createBookshelf knex
     logger = createLogger settings.logger
-    Order = createOrder bookshelf
+    Order = create_3DCartOrders bookshelf
     Promise.bind(@)
     .then -> knex.raw("SET search_path TO pg_temp")
     .then -> Order.createTable()
