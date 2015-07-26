@@ -25,7 +25,6 @@
     "chai-things": "^0.2.0",
     "coffee-script": "^1.9.3",
     "mocha": "=2.1.0",
-    "mock-knex": "^0.2.2",
     "nock": "^2.7.0",
     "require-main": "^0.1.1",
     "sinon": "^1.15.4",
