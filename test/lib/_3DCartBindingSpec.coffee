@@ -9,8 +9,10 @@ describe "_3DCartBinding", ->
   binding = null
 
   beforeEach ->
-    binding = new _3DCartBinding
-      credential: settings.credentials.bellefit
+    binding = new _3DCartBinding({scopes: ["*"]})
+    binding.setCredential(
+      details: settings.credentials["_3DCart"]["Generic"]
+    )
 
   it "binding.getOrders() :: GET /Orders", ->
     new Promise (resolve, reject) ->

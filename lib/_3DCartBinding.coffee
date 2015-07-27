@@ -4,6 +4,10 @@ Binding = require "../core/lib/Binding"
 BasicAuthentication = require "../core/lib/Authentication/BasicAuthentication"
 
 class _3DCartBinding extends Binding
+  constructor: (options) ->
+    _.defaults options,
+      api: "_3DCart"
+    super
 
   request: (options) ->
     _.defaults options,
@@ -12,9 +16,9 @@ class _3DCartBinding extends Binding
       headers: {}
     # 3DCart uses a homegrown authentication mechanism
     _.defaults options.headers,
-      SecureUrl: @credential.url
-      PrivateKey: @credential.privateKey
-      Token: @credential.token
+      SecureUrl: @credential.details.url
+      PrivateKey: @credential.details.privateKey
+      Token: @credential.details.token
     super
     .spread (response, body) ->
       if body[0]?.Key is "Error"

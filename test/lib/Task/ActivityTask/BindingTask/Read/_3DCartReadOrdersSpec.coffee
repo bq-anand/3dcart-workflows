@@ -1,24 +1,24 @@
 _ = require "underscore"
 Promise = require "bluebird"
 stream = require "readable-stream"
-createLogger = require "../../../../../core/helper/logger"
-createKnex = require "../../../../../core/helper/knex"
-createBookshelf = require "../../../../../core/helper/bookshelf"
-settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
+createDependencies = require "../../../../../../core/test-helper/dependencies"
+settings = (require "../../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
-_3DCartBinding = require "../../../../../lib/_3DCartBinding"
-_3DCartReadOrders = require "../../../../../lib/Task/ActivityTask/Read/_3DCartReadOrders"
+_3DCartReadOrders = require "../../../../../../lib/Task/ActivityTask/BindingTask/Read/_3DCartReadOrders"
 
 describe "_3DCartReadOrders", ->
-  binding = null; logger = null; task = null;
+  dependencies = createDependencies(settings)
+  mongodb = dependencies.mongodb;
+
+  Credentials = mongodb.collection("Credentials")
+
+  task = null;
 
   before ->
-    binding = new _3DCartBinding
-      credential: settings.credentials.bellefit
-    logger = createLogger settings.logger
 
   beforeEach ->
     task = new _3DCartReadOrders(
+      avatarId: "jTq97yYndzYB5FtpL"
       params:
         datestart: "09/10/2013"
         dateend: "09/15/2013"
@@ -27,9 +27,21 @@ describe "_3DCartReadOrders", ->
     ,
       in: new stream.Readable({objectMode: true})
       out: new stream.PassThrough({objectMode: true})
-      binding: binding
-      logger: logger
+    ,
+      dependencies
     )
+    Promise.all [
+      Credentials.insert
+        avatarId: "jTq97yYndzYB5FtpL"
+        api: "_3DCart"
+        scopes: ["*"]
+        details: settings.credentials["_3DCart"]["Generic"]
+    ]
+
+  afterEach ->
+    Promise.all [
+      Credentials.remove()
+    ]
 
   it "should run", ->
     @timeout(20000) if process.env.NOCK_BACK_MODE is "record"

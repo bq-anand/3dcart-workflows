@@ -1,9 +1,7 @@
 _ = require "underscore"
 Promise = require "bluebird"
 stream = require "readable-stream"
-createLogger = require "../../../../../core/helper/logger"
-createKnex = require "../../../../../core/helper/knex"
-createBookshelf = require "../../../../../core/helper/bookshelf"
+createDependencies = require "../../../../../core/test-helper/dependencies"
 settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
 _3DCartSaveOrders = require "../../../../../lib/Task/ActivityTask/Save/_3DCartSaveOrders"
@@ -11,22 +9,20 @@ create_3DCartOrders = require "../../../../../lib/Model/_3DCartOrders"
 sample = require "#{process.env.ROOT_DIR}/test/fixtures/_3DCartSaveOrders/sample.json"
 
 describe "_3DCartSaveOrders", ->
-  knex = null; bookshelf = null; logger = null; _3DCartOrders = null; task = null; # shared between tests
+  dependencies = createDependencies(settings)
+  knex = dependencies.knex; bookshelf = dependencies.bookshelf
 
-  before (beforeDone) ->
-    knex = createKnex settings.knex
-    knex.Promise.longStackTraces()
-    bookshelf = createBookshelf knex
-    logger = createLogger settings.logger
-    _3DCartOrders = create_3DCartOrders bookshelf
+  _3DCartOrders = create_3DCartOrders bookshelf
+
+  task = null # shared between tests
+
+  before ->
     Promise.bind(@)
     .then -> knex.raw("SET search_path TO pg_temp")
     .then -> _3DCartOrders.createTable()
-    .nodeify beforeDone
 
-  after (teardownDone) ->
+  after ->
     knex.destroy()
-    .nodeify teardownDone
 
   beforeEach ->
     task = new _3DCartSaveOrders(
@@ -36,8 +32,8 @@ describe "_3DCartSaveOrders", ->
     ,
       in: new stream.PassThrough({objectMode: true})
       out: new stream.PassThrough({objectMode: true})
-      bookshelf: bookshelf
-      logger: logger
+    ,
+      dependencies
     )
 
   it "should run", ->

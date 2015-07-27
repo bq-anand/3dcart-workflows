@@ -1,6 +1,7 @@
 _ = require "underscore"
 Promise = require "bluebird"
-LimitOffset = require "../../../../core/lib/Task/ActivityTask/Read/LimitOffset"
+_3DCartBinding = require "../../../../_3DCartBinding"
+LimitOffset = require "../../../../../core/lib/Task/ActivityTask/BindingTask/Read/LimitOffset"
 
 class _3DCartReadOrders extends LimitOffset
   constructor: (input, options, dependencies) ->
@@ -8,6 +9,7 @@ class _3DCartReadOrders extends LimitOffset
       offset: 1
     super
 
+  createBinding: -> new _3DCartBinding({scopes: ["*"]})
   getTotalParams: -> _.extend {countonly: 1}, @params
   getTotalRequest: (params) -> @binding.getOrders(params)
   extractTotalFromResponse: (response, body) -> body.TotalCount

@@ -1,9 +1,7 @@
 _ = require "underscore"
 Promise = require "bluebird"
 stream = require "readable-stream"
-createLogger = require "../../../../../core/helper/logger"
-createKnex = require "../../../../../core/helper/knex"
-createBookshelf = require "../../../../../core/helper/bookshelf"
+createDependencies = require "../../../../../core/test-helper/dependencies"
 settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
 Binding = require "../../../../../lib/_3DCartBinding"
@@ -12,26 +10,24 @@ create_3DCartOrders = require "../../../../../lib/Model/_3DCartOrders"
 sample = require "#{process.env.ROOT_DIR}/test/fixtures/_3DCartSaveOrders/sample.json"
 
 describe "_3DCartDownloadOrders", ->
-  binding = null; knex = null; bookshelf = null; logger = null; Order = null; task = null; # shared between tests
+  dependencies = createDependencies(settings)
+  knex = dependencies.knex; bookshelf = dependencies.bookshelf; mongodb = dependencies.mongodb
 
-  before (beforeDone) ->
-    knex = createKnex settings.knex
-    bookshelf = createBookshelf knex
-    logger = createLogger settings.logger
-    Order = create_3DCartOrders bookshelf
+  Credentials = mongodb.collection("Credentials")
+
+  _3DCartOrders = create_3DCartOrders bookshelf
+
+  task = null # shared between tests
+
+  before ->
     Promise.bind(@)
     .then -> knex.raw("SET search_path TO pg_temp")
-    .then -> Order.createTable()
-    .nodeify beforeDone
+    .then -> _3DCartOrders.createTable()
 
-  after (teardownDone) ->
+  after ->
     knex.destroy()
-    .nodeify teardownDone
 
   beforeEach ->
-    binding = new Binding(
-      credential: settings.credentials.bellefit
-    )
     task = new _3DCartDownloadOrders(
       _3DCartReadOrders:
         input:
@@ -48,10 +44,21 @@ describe "_3DCartDownloadOrders", ->
     ,
       in: new stream.PassThrough({objectMode: true})
       out: new stream.PassThrough({objectMode: true})
-      binding: binding
-      bookshelf: bookshelf
-      logger: logger
+    ,
+      dependencies
     )
+  Promise.all [
+    Credentials.insert
+      avatarId: "jTq97yYndzYB5FtpL"
+      api: "_3DCart"
+      scopes: ["*"]
+      details: settings.credentials["_3DCart"]["Generic"]
+  ]
+
+  afterEach ->
+    Promise.all [
+      Credentials.remove()
+    ]
 
   it "should run", ->
     @timeout(10000)
@@ -59,11 +66,11 @@ describe "_3DCartDownloadOrders", ->
       nock.back "test/fixtures/_3DCartReadOrders/normal.json", (recordingDone) ->
         task.execute()
         .then ->
-          knex(Order::tableName).count("id")
+          knex(_3DCartOrders::tableName).count("id")
           .then (results) ->
             results[0].count.should.be.equal("306")
         .then ->
-          Order.where({InvoiceNumber: 24545}).fetch()
+          _3DCartOrders.where({InvoiceNumber: 24545}).fetch()
           .then (model) ->
             should.exist(model)
             model.get("BillingFirstName").should.be.equal("Alondra")
