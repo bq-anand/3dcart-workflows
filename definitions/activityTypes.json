@@ -5,10 +5,10 @@
     "defaultTaskList": {
       "name": "_3DCartReadOrders"
     },
-    "defaultTaskHeartbeatTimeout": "1800000",
+    "defaultTaskHeartbeatTimeout": "1800",
     "defaultTaskPriority": "0",
-    "defaultTaskScheduleToStartTimeout": "3600000",
-    "defaultTaskStartToCloseTimeout": "1800000",
+    "defaultTaskScheduleToStartTimeout": "3600",
+    "defaultTaskStartToCloseTimeout": "1800",
     "defaultTaskScheduleToCloseTimeout": "NONE",
     "description": ""
   },
@@ -18,10 +18,10 @@
     "defaultTaskList": {
       "name": "_3DCartSaveOrders"
     },
-    "defaultTaskHeartbeatTimeout": "600000",
+    "defaultTaskHeartbeatTimeout": "600",
     "defaultTaskPriority": "0",
-    "defaultTaskScheduleToStartTimeout": "1800000",
-    "defaultTaskStartToCloseTimeout": "600000",
+    "defaultTaskScheduleToStartTimeout": "1800",
+    "defaultTaskStartToCloseTimeout": "600",
     "defaultTaskScheduleToCloseTimeout": "NONE",
     "description": ""
   },
@@ -31,10 +31,10 @@
     "defaultTaskList": {
       "name": "_3DCartDownloadOrders"
     },
-    "defaultTaskHeartbeatTimeout": "1800000",
+    "defaultTaskHeartbeatTimeout": "1800",
     "defaultTaskPriority": "0",
-    "defaultTaskScheduleToStartTimeout": "3600000",
-    "defaultTaskStartToCloseTimeout": "1800000",
+    "defaultTaskScheduleToStartTimeout": "3600",
+    "defaultTaskStartToCloseTimeout": "1800",
     "defaultTaskScheduleToCloseTimeout": "NONE",
     "description": ""
   }
