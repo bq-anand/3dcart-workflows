@@ -5,6 +5,7 @@ Download = require "../../../../core/lib/Task/ActivityTask/Download"
 _3DCartReadOrders = require "../BindingTask/Read/_3DCartReadOrders"
 _3DCartSaveOrders = require "../Save/_3DCartSaveOrders"
 
+# This task leaks memory. Maybe it's promises, but who knows
 class _3DCartDownloadOrders extends Download
   constructor: (input, options, streams, dependencies) ->
     Match.check input,
