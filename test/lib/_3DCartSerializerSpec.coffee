@@ -8,8 +8,8 @@ _3DCartSerializer = require "../../lib/_3DCartSerializer"
 create_3DCartOrders = require "../../lib/Model/_3DCartOrders"
 sample = require "#{process.env.ROOT_DIR}/test/fixtures/_3DCartSaveOrders/sample.json"
 
-describe "Serializer", ->
-  dependencies = createDependencies(settings)
+describe "_3DCartSerializer", ->
+  dependencies = createDependencies(settings, "_3DCartSerializer")
   knex = dependencies.knex; bookshelf = dependencies.bookshelf
 
   _3DCartOrder = create_3DCartOrders bookshelf

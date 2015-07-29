@@ -8,12 +8,14 @@ _3DCartSaveOrders = require "../Save/_3DCartSaveOrders"
 # This task leaks memory. Maybe it's promises, but who knows
 class _3DCartDownloadOrders extends Download
   constructor: (input, options, streams, dependencies) ->
-    Match.check input,
+    Match.check input, Match.ObjectIncluding
       _3DCartReadOrders: Object
       _3DCartSaveOrders: Object
+    readArguments = @arguments input, "_3DCartReadOrders"
+    saveArguments = @arguments input, "_3DCartSaveOrders"
     _.extend @,
-      read: new _3DCartReadOrders input._3DCartReadOrders.input, input._3DCartReadOrders, streams, dependencies
-      save: new _3DCartSaveOrders input._3DCartSaveOrders.input, input._3DCartReadOrders, streams, dependencies
+      read: new _3DCartReadOrders readArguments.input, readArguments.options, streams, dependencies
+      save: new _3DCartSaveOrders saveArguments.input, saveArguments.options, streams, dependencies
     super
 
 module.exports = _3DCartDownloadOrders
