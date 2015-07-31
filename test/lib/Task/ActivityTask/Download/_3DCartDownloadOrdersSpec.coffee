@@ -69,9 +69,7 @@ describe "_3DCartDownloadOrders", ->
       Commands.insert
         _id: input.commandId
         progressBars: [
-          activityId: "_3DCartReadOrders", isStarted: true, isFinished: false
-        ,
-          activityId: "_3DCartSaveOrders", isStarted: true, isFinished: false
+          activityId: "_3DCartDownloadOrders", isStarted: true, isFinished: false
         ]
     ]
 
@@ -92,10 +90,7 @@ describe "_3DCartDownloadOrders", ->
         .then ->
           Commands.findOne(task.commandId)
           .then (command) ->
-            command.progressBars[0].total.should.be.equal(306)
-            command.progressBars[0].current.should.be.equal(306)
-            command.progressBars[1].total.should.be.equal(0)
-            command.progressBars[1].current.should.be.equal(306)
+            command.progressBars[0].should.be.deep.equal activityId: "_3DCartDownloadOrders", total: 306, current: 306, isStarted: true, isFinished: false
         .then resolve
         .catch reject
         .finally recordingDone
