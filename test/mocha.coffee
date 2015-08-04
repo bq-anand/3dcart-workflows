@@ -15,8 +15,9 @@ chai.use(chaiSinon)
 
 global.sinon = require("sinon")
 
+process.env.BLUEBIRD_DEBUG = 1
 Promise = require "bluebird"
-process.env.BLUEBIRD_DEBUG=1
+
 
 global.nock = require "nock"
 global.nock.back.fixtures = "#{process.env.ROOT_DIR}"

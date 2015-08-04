@@ -36,4 +36,11 @@ class _3DCartBinding extends Binding
       qs: qs
     , options
 
+  updateOrders: (json, options) ->
+    @request _.extend
+      method: "PUT"
+      url: "/Orders"
+      json: json
+    , options
+
 module.exports = _3DCartBinding
