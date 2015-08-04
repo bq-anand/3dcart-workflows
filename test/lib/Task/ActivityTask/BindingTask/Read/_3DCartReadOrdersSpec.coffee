@@ -41,7 +41,6 @@ describe "_3DCartReadOrders", ->
         Commands.remove()
         Issues.remove()
       ]
-      console.log new Date()
     .then ->
       Promise.all [
         Credentials.insert
