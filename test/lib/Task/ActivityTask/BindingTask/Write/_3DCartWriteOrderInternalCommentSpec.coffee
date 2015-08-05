@@ -17,17 +17,16 @@ describe "_3DCartWriteOrderInternalComment", ->
 
   task = null
   orderId = "47620"
+  initialComments = "Initial internal comment"
 
   before ->
 
   beforeEach ->
     task = new _3DCartWriteOrderInternalComment(
       _.defaults
-        _3DCartWriteOrderInternalComment:
-          input:
-            params:
-              orderid: orderId
-            text: "New internal comment"
+        params:
+          OrderId: orderId
+        text: "New internal comment"
       , input
     ,
       activityId: "_3DCartWriteOrderInternalComment"
@@ -64,7 +63,7 @@ describe "_3DCartWriteOrderInternalComment", ->
           task
           .acquireCredential()
           .then ->
-            @binding.updateOrders([{OrderID: orderId, InternalComments: "Initial internal comment"}])
+            @binding.updateOrders([{OrderID: orderId, InternalComments: initialComments}])
           .then resolve
           .catch reject
           .finally recordingDone
@@ -74,18 +73,14 @@ describe "_3DCartWriteOrderInternalComment", ->
     @timeout(20000) if process.env.NOCK_BACK_MODE is "record"
     new Promise (resolve, reject) ->
       nock.back "test/fixtures/_3DCartWriteOrderInternalComment/normal.json", (recordingDone) ->
-        sinon.spy(task.out, "write")
         sinon.spy(task.binding, "request")
         task.execute()
         .then ->
           task.binding.request.should.have.callCount(2)
-          task.out.write.should.have.callCount(1)
-          task.out.write.should.always.have.been.calledWithMatch sinon.match (object) ->
-            check = object.Key is "OrderID" and object.Value is "47620" and object.Status is "200"
-            if not check
-              console.log object
-            check
-          , "Order update is not successful"
+          task.binding.getOrders(task.params)
+          .spread (response, body) ->
+            order = body[0]
+            order.InternalComments.should.be.equal("#{initialComments}\n----------------------------------\n#{task.text}")
         .then resolve
         .catch reject
         .finally recordingDone
