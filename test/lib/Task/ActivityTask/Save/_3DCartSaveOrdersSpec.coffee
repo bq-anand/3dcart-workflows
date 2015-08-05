@@ -61,7 +61,7 @@ describe "_3DCartSaveOrders", ->
           ]
       ]
 
-  it "should run", ->
+  it "should save new objects", ->
     task.in.write(sample)
     task.in.end()
     task.execute()
@@ -70,12 +70,40 @@ describe "_3DCartSaveOrders", ->
       .then (results) ->
         results[0].count.should.be.equal("1")
     .then ->
-      _3DCartOrders.where({id: 1}).fetch()
+      _3DCartOrders.where({InvoiceNumber: 24545}).fetch()
       .then (model) ->
-        model.get("InvoiceNumber").should.be.equal(24545)
+        should.exist(model)
     .then ->
       Commands.findOne(input.commandId)
       .then (command) ->
         command.progressBars[0].total.should.be.equal(0)
         command.progressBars[0].current.should.be.equal(1)
 
+  it "should update existing objects", ->
+    task.in.write(sample)
+    task.in.end()
+    task.execute()
+    .then ->
+      task = new _3DCartSaveOrders(
+        _.defaults {}, input
+      ,
+        activityId: "_3DCartSaveOrders"
+      ,
+        in: new stream.PassThrough({objectMode: true})
+        out: new stream.PassThrough({objectMode: true})
+      ,
+        dependencies
+      )
+      task.in.write _.defaults
+        "InvoiceNumber": 344
+      , sample
+      task.in.end()
+      task.execute()
+    .then ->
+      knex(_3DCartOrders::tableName).count("id")
+      .then (results) ->
+        results[0].count.should.be.equal("1")
+    .then ->
+      _3DCartOrders.where({InvoiceNumber: 344}).fetch()
+      .then (model) ->
+        should.exist(model)

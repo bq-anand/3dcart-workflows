@@ -51,8 +51,9 @@ describe "_3DCartReadOrders", ->
         Commands.insert
           _id: input.commandId
           progressBars: [
-            activityId: "_3DCartReadOrders", isStarted: true, isFinished: false
+            activityId: "_3DCartReadOrders", isStarted: true, isCompleted: false, isFailed: false
           ]
+          isStarted: true, isCompleted: false, isFailed: false
       ]
 
   it "should run", ->
