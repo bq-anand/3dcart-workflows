@@ -15,16 +15,19 @@ describe "_3DCartWriteOrderInternalComment", ->
   Commands = mongodb.collection("Commands")
   Issues = mongodb.collection("Issues")
 
-  task = null;
+  task = null
+  orderId = "47620"
 
   before ->
 
   beforeEach ->
     task = new _3DCartWriteOrderInternalComment(
       _.defaults
-        params:
-          orderid: 47620
-        text: "New internal comment"
+        _3DCartWriteOrderInternalComment:
+          input:
+            params:
+              orderid: orderId
+            text: "New internal comment"
       , input
     ,
       activityId: "_3DCartWriteOrderInternalComment"
@@ -61,7 +64,7 @@ describe "_3DCartWriteOrderInternalComment", ->
           task
           .acquireCredential()
           .then ->
-            @binding.updateOrders([{OrderID: @params.orderid, InternalComments: "Initial internal comment"}])
+            @binding.updateOrders([{OrderID: orderId, InternalComments: "Initial internal comment"}])
           .then resolve
           .catch reject
           .finally recordingDone
