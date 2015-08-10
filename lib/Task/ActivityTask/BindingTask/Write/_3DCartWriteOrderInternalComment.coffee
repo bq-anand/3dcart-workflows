@@ -20,8 +20,8 @@ class _3DCartWriteOrderInternalComment extends Write
       for order in orders
         objects.push
           OrderID: order.OrderID
-          InternalComments: order.InternalComments + "\n----------------------------------\n#{@text}"
-      @binding.updateOrders(objects).bind(@)
+          InternalComments: "#{@commenter} - #{@commentedAt}\r\nComment: #{@text}\r\n\r\n#{order.InternalComments}"
+      @binding.updateOrders(objects)
     .then -> {}
 
 module.exports = _3DCartWriteOrderInternalComment

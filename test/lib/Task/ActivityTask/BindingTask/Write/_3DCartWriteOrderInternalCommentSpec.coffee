@@ -17,7 +17,7 @@ describe "_3DCartWriteOrderInternalComment", ->
 
   task = null
   orderId = "47620"
-  initialComments = "Initial internal comment"
+  initialComments = "Dennis - 7/20/2015 12:05:34 PM\r\nComment: Initial internal comment\r\n\r\n"
 
   before ->
 
@@ -27,6 +27,8 @@ describe "_3DCartWriteOrderInternalComment", ->
         params:
           OrderId: orderId
         text: "New internal comment"
+        commenter: "Dennis"
+        commentedAt: "17/20/2015 13:45:34 PM"
       , input
     ,
       activityId: "_3DCartWriteOrderInternalComment"
@@ -53,8 +55,9 @@ describe "_3DCartWriteOrderInternalComment", ->
         Commands.insert
           _id: input.commandId
           progressBars: [
-            activityId: "_3DCartReadOrders", isStarted: true, isFinished: false
+            activityId: "_3DCartReadOrders", isStarted: true, isCompleted: false, isFailed: false
           ]
+          isStarted: true, isCompleted: false, isFailed: false
       ]
     .then ->
       @timeout(20000) if process.env.NOCK_BACK_MODE is "record"
@@ -80,7 +83,7 @@ describe "_3DCartWriteOrderInternalComment", ->
           task.binding.getOrders(task.params)
           .spread (response, body) ->
             order = body[0]
-            order.InternalComments.should.be.equal("#{initialComments}\n----------------------------------\n#{task.text}")
+            order.InternalComments.should.be.equal("#{task.commenter} - #{task.commentedAt}\r\nComment: #{task.text}\r\n\r\n#{initialComments}")
         .then resolve
         .catch reject
         .finally recordingDone

@@ -6,7 +6,7 @@
         "body": [
             {
                 "OrderID": "47620",
-                "InternalComments": "Initial internal comment"
+                "InternalComments": "Dennis - 7/20/2015 12:05:34 PM\r\nComment: Initial internal comment\r\n\r\n"
             }
         ],
         "status": 200,
@@ -27,7 +27,7 @@
             "x-aspnet-version": "4.0.30319",
             "x-powered-by": "",
             "access-control-allow-origin": "*",
-            "date": "Wed, 05 Aug 2015 16:09:06 GMT",
+            "date": "Mon, 10 Aug 2015 17:32:27 GMT",
             "connection": "close",
             "content-length": "83"
         }
