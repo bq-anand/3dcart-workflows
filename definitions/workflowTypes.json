@@ -1,0 +1,14 @@
+[
+  {
+    "name": "_3DCartWriteOrderInternalComment",
+    "version": "1.0.0",
+    "defaultTaskList": {
+      "name": "_3DCartWriteOrderInternalComment"
+    },
+    "defaultExecutionStartToCloseTimeout": "3600",
+    "defaultTaskStartToCloseTimeout": "1800",
+    "defaultTaskPriority": "0",
+    "defaultChildPolicy": "REQUEST_CANCEL",
+    "description": ""
+  }
+]

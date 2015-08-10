@@ -37,5 +37,18 @@
     "defaultTaskStartToCloseTimeout": "1800",
     "defaultTaskScheduleToCloseTimeout": "NONE",
     "description": ""
+  },
+  {
+    "name": "_3DCartWriteOrderInternalComment",
+    "version": "1.0.0",
+    "defaultTaskList": {
+      "name": "_3DCartWriteOrderInternalComment"
+    },
+    "defaultTaskHeartbeatTimeout": "1800",
+    "defaultTaskPriority": "0",
+    "defaultTaskScheduleToStartTimeout": "3600",
+    "defaultTaskStartToCloseTimeout": "1800",
+    "defaultTaskScheduleToCloseTimeout": "NONE",
+    "description": ""
   }
 ]
