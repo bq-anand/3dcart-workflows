@@ -13,7 +13,7 @@
                 "CustomerID": 7593,
                 "OrderDate": "2013-09-16T17:57:32",
                 "OrderStatusID": 1,
-                "LastUpdate": "2015-08-10T13:32:27",
+                "LastUpdate": "2015-08-11T09:43:15",
                 "UserID": "Dennis",
                 "SalesPerson": "",
                 "ContinueURL": "http://bellefitdevelopment.3dcartstores.com/continue_order.asp?orderkey=14Yft84xHOCGueW47620",
@@ -34,7 +34,7 @@
                 "ShipmentList": [
                     {
                         "ShipmentID": 0,
-                        "ShipmentLastUpdate": "2015-08-10T13:32:27",
+                        "ShipmentLastUpdate": "2015-08-11T09:43:15",
                         "ShipmentBoxes": 1,
                         "ShipmentInternalComment": "",
                         "ShipmentOrderStatus": 1,
@@ -78,7 +78,7 @@
                         "ItemAdditionalField2": "",
                         "ItemAdditionalField3": "",
                         "ItemPageAdded": "dualgirdle.php",
-                        "ItemDateAdded": "2015-08-10T00:00:00",
+                        "ItemDateAdded": "2015-08-11T00:00:00",
                         "ItemUnitCost": 20.6,
                         "ItemUnitStock": -358,
                         "ItemOptions": ",110",
@@ -149,7 +149,7 @@
             "x-aspnet-version": "4.0.30319",
             "x-powered-by": "",
             "access-control-allow-origin": "*",
-            "date": "Mon, 10 Aug 2015 17:32:28 GMT",
+            "date": "Tue, 11 Aug 2015 13:43:16 GMT",
             "connection": "close",
             "content-length": "3300"
         }
@@ -182,7 +182,7 @@
             "x-aspnet-version": "4.0.30319",
             "x-powered-by": "",
             "access-control-allow-origin": "*",
-            "date": "Mon, 10 Aug 2015 17:32:29 GMT",
+            "date": "Tue, 11 Aug 2015 13:43:16 GMT",
             "connection": "close",
             "content-length": "83"
         }
@@ -201,7 +201,7 @@
                 "CustomerID": 7593,
                 "OrderDate": "2013-09-16T17:57:32",
                 "OrderStatusID": 1,
-                "LastUpdate": "2015-08-10T13:32:30",
+                "LastUpdate": "2015-08-11T09:43:17",
                 "UserID": "Dennis",
                 "SalesPerson": "",
                 "ContinueURL": "http://bellefitdevelopment.3dcartstores.com/continue_order.asp?orderkey=14Yft84xHOCGueW47620",
@@ -222,7 +222,7 @@
                 "ShipmentList": [
                     {
                         "ShipmentID": 0,
-                        "ShipmentLastUpdate": "2015-08-10T13:32:30",
+                        "ShipmentLastUpdate": "2015-08-11T09:43:17",
                         "ShipmentBoxes": 1,
                         "ShipmentInternalComment": "",
                         "ShipmentOrderStatus": 1,
@@ -266,7 +266,7 @@
                         "ItemAdditionalField2": "",
                         "ItemAdditionalField3": "",
                         "ItemPageAdded": "dualgirdle.php",
-                        "ItemDateAdded": "2015-08-10T00:00:00",
+                        "ItemDateAdded": "2015-08-11T00:00:00",
                         "ItemUnitCost": 20.6,
                         "ItemUnitStock": -358,
                         "ItemOptions": ",110",
@@ -337,7 +337,7 @@
             "x-aspnet-version": "4.0.30319",
             "x-powered-by": "",
             "access-control-allow-origin": "*",
-            "date": "Mon, 10 Aug 2015 17:32:30 GMT",
+            "date": "Tue, 11 Aug 2015 13:43:17 GMT",
             "connection": "close",
             "content-length": "3372"
         }
