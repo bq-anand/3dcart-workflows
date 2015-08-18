@@ -3,7 +3,7 @@ Promise = require "bluebird"
 stream = require "readable-stream"
 input = require "../../../../../core/test-helper/input"
 createDependencies = require "../../../../../core/helper/dependencies"
-settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
+settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/test.json")
 
 _3DCartSaveOrders = require "../../../../../lib/Task/ActivityTask/Save/_3DCartSaveOrders"
 create_3DCartOrders = require "../../../../../lib/Model/_3DCartOrders"

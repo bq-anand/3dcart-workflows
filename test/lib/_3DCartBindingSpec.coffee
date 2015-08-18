@@ -1,7 +1,7 @@
 _ = require "underscore"
 Promise = require "bluebird"
 _3DCartBinding = require "../../lib/_3DCartBinding"
-settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
+settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/test.json")
 
 describe "_3DCartBinding", ->
   @timeout(10000) if process.env.NOCK_BACK_MODE is "record"
