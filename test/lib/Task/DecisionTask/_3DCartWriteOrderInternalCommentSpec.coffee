@@ -31,10 +31,10 @@ describe "_3DCartWriteOrderInternalComment decision task", ->
       updates: [@commandSetIsStarted input.commandId]
       branches: [
         events: [@ActivityTaskCompleted "_3DCartWriteOrderInternalComment"]
-        decisions: [@CompleteWorkflowExecution({success: true})]
+        decisions: [@CompleteWorkflowExecution({_3DCartWriteOrderInternalComment: {}})]
         updates: [
           @commandSetIsCompleted input.commandId
-          @commandSetResult input.commandId, {success: true}
+          @commandSetResult input.commandId, {_3DCartWriteOrderInternalComment: {}}
         ]
       ,
         events: [@ActivityTaskFailed "_3DCartWriteOrderInternalComment"]

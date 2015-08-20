@@ -9,6 +9,6 @@ class _3DCartWriteOrderInternalComment extends DecisionTask
     @addDecision @ScheduleActivityTask "_3DCartWriteOrderInternalComment", stamp(@input["_3DCartWriteOrderInternalComment"], @input)
 
   CompleteWorkflowExecutionBarrierPassed: ->
-    @addDecision @CompleteWorkflowExecution success: true
+    @addDecision @CompleteWorkflowExecution @results
 
 module.exports = _3DCartWriteOrderInternalComment
