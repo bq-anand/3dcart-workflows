@@ -11,6 +11,6 @@ class _3DCartSaveOrders extends UpsertThroughTemporaryTable
     if externalObject.InvoiceNumber and externalObject.OrderItemList.length
       super
     else
-      false
+      Promise.resolve(false)
 
 module.exports = _3DCartSaveOrders
