@@ -6,11 +6,4 @@ class _3DCartSaveOrders extends UpsertThroughTemporaryTable
   createModel: -> create_3DCartOrders(@bookshelf)
   createSerializer: -> new Serializer({model: @model})
 
-  insert: (trx, externalObject) ->
-    # hack for Bellefit
-    if externalObject.InvoiceNumber and externalObject.OrderItemList.length
-      super
-    else
-      Promise.resolve(false)
-
 module.exports = _3DCartSaveOrders
