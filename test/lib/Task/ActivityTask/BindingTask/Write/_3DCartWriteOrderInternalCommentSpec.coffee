@@ -72,7 +72,7 @@ describe "_3DCartWriteOrderInternalComment", ->
           .finally recordingDone
 
 
-  it "should run", ->
+  it "should run @fast", ->
     @timeout(20000) if process.env.NOCK_BACK_MODE is "record"
     new Promise (resolve, reject) ->
       nock.back "test/fixtures/_3DCartWriteOrderInternalComment/normal.json", (recordingDone) ->

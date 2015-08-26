@@ -23,12 +23,12 @@ describe "_3DCartSerializer", ->
     serializer = new _3DCartSerializer
       model: _3DCartOrder
 
-  it "should be idempotent", ->
+  it "should be idempotent @fast", ->
     sampleMirror = serializer.toExternal(serializer.toInternal(sample))
     sample.should.be.deep.equal(sampleMirror)
 
-  it "should remap OrderID to _uid", ->
+  it "should remap OrderID to _uid @fast", ->
     serializer.toInternal(sample)._uid.should.be.equal(sample.OrderID)
 
-  it "should transform created_at::string into created_at::Date", ->
+  it "should transform created_at::string into created_at::Date @fast", ->
     serializer.toInternal(sample).OrderDate.should.be.an.instanceof(Date)

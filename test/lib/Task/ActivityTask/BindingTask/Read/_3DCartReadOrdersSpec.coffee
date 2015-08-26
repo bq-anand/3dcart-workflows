@@ -56,7 +56,7 @@ describe "_3DCartReadOrders", ->
           isStarted: true, isCompleted: false, isFailed: false
       ]
 
-  it "should run", ->
+  it "should run @fast", ->
     @timeout(20000) if process.env.NOCK_BACK_MODE is "record"
     new Promise (resolve, reject) ->
       nock.back "test/fixtures/_3DCartReadOrders/normal.json", (recordingDone) ->

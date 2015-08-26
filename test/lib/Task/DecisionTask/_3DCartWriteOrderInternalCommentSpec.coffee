@@ -45,7 +45,7 @@ describe "_3DCartWriteOrderInternalComment decision task", ->
 
   for history in generator.histories()
     do (history) ->
-      it "should run `#{history.name}` history", ->
+      it "should run `#{history.name}` history @fast", ->
         task = new _3DCartWriteOrderInternalComment(
           history.events
         ,

@@ -74,7 +74,7 @@ describe "_3DCartDownloadOrders", ->
         isStarted: true, isCompleted: false, isFailed: false
     ]
 
-  it "should run", ->
+  it "should run @fast", ->
     @timeout(10000)
     new Promise (resolve, reject) ->
       nock.back "test/fixtures/_3DCartReadOrders/normal.json", (recordingDone) ->

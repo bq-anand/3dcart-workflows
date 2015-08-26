@@ -14,7 +14,7 @@ describe "_3DCartBinding", ->
       details: settings.credentials["_3DCart"]["Generic"]
     )
 
-  it "binding.getOrders() :: GET /Orders", ->
+  it "binding.getOrders() :: GET /Orders @fast", ->
     new Promise (resolve, reject) ->
       nock.back "test/fixtures/_3DCartBinding/getOrders.json", (recordingDone) ->
         binding.getOrders
@@ -30,7 +30,7 @@ describe "_3DCartBinding", ->
         .catch reject
         .finally recordingDone
 
-#  it "binding should report rate limiting errors @ratelimit", (testDone) ->
+#  it "binding should report rate limiting errors @ratelimit @fast", (testDone) ->
 #    binding
 #    testDone()
 #
