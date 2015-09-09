@@ -34,21 +34,16 @@ describe "_3DCartDownloadOrders", ->
     task = new _3DCartDownloadOrders(
       _.defaults
         _3DCartReadOrders:
-          input:
-            avatarId: input.avatarId
-            params:
-              datestart: "09/10/2013"
-              dateend: "09/15/2013"
+          avatarId: input.avatarId
+          params:
+            datestart: "09/10/2013"
+            dateend: "09/15/2013"
         _3DCartSaveOrders:
-          input:
-            avatarId: input.avatarId
-            params: {}
+          avatarId: input.avatarId
+          params: {}
       , input
     ,
       activityId: "_3DCartDownloadOrders"
-    ,
-      in: new stream.PassThrough({objectMode: true})
-      out: new stream.PassThrough({objectMode: true})
     ,
       dependencies
     )

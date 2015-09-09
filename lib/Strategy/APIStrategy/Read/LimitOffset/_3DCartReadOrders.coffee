@@ -1,10 +1,10 @@
 _ = require "underscore"
 Promise = require "bluebird"
+LimitOffset = require "../../../../../core/lib/Strategy/APIStrategy/Read/LimitOffset"
 _3DCartBinding = require "../../../../_3DCartBinding"
-LimitOffset = require "../../../../../core/lib/Task/ActivityTask/BindingTask/Read/LimitOffset"
 
 class _3DCartReadOrders extends LimitOffset
-  constructor: (input, options, dependencies) ->
+  constructor: (input, dependencies) ->
     _.defaults input,
       offset: 1
     super

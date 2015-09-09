@@ -1,11 +1,11 @@
 _ = require "underscore"
 Promise = require "bluebird"
 stream = require "readable-stream"
-input = require "../../../../../../core/test-helper/input"
-createDependencies = require "../../../../../../core/helper/dependencies"
-settings = (require "../../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/test.json")
+input = require "../../../../../core/test-helper/input"
+createDependencies = require "../../../../../core/helper/dependencies"
+settings = (require "../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/test.json")
 
-_3DCartWriteOrderInternalComment = require "../../../../../../lib/Task/ActivityTask/BindingTask/Write/_3DCartWriteOrderInternalComment"
+_3DCartWriteOrderInternalComment = require "../../../../../lib/Strategy/APIStrategy/Write/_3DCartWriteOrderInternalComment"
 
 describe "_3DCartWriteOrderInternalComment", ->
   dependencies = createDependencies(settings, "_3DCartWriteOrderInternalComment")

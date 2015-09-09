@@ -1,8 +1,8 @@
 _ = require "underscore"
 Promise = require "bluebird"
 Match = require "mtr-match"
-_3DCartBinding = require "../../../../_3DCartBinding"
-Write = require "../../../../../core/lib/Task/ActivityTask/BindingTask/Write"
+_3DCartBinding = require "../../../_3DCartBinding"
+Write = require "../../../../core/lib/Strategy/APIStrategy/Write"
 
 class _3DCartWriteOrderInternalComment extends Write
   createBinding: -> new _3DCartBinding({scopes: ["*"]})

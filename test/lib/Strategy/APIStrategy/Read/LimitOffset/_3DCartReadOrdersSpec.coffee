@@ -5,7 +5,7 @@ input = require "../../../../../../core/test-helper/input"
 createDependencies = require "../../../../../../core/helper/dependencies"
 settings = (require "../../../../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/test.json")
 
-_3DCartReadOrders = require "../../../../../../lib/Task/ActivityTask/BindingTask/Read/_3DCartReadOrders"
+_3DCartReadOrders = require "../../../../../../lib/Strategy/APIStrategy/Read/LimitOffset/_3DCartReadOrders"
 
 describe "_3DCartReadOrders", ->
   dependencies = createDependencies(settings, "_3DCartReadOrders")
@@ -29,9 +29,6 @@ describe "_3DCartReadOrders", ->
     ,
       activityId: "_3DCartReadOrders"
     ,
-      in: new stream.Readable({objectMode: true})
-      out: new stream.PassThrough({objectMode: true})
-    ,
       dependencies
     )
     Promise.bind(@)
@@ -48,12 +45,6 @@ describe "_3DCartReadOrders", ->
           api: "_3DCart"
           scopes: ["*"]
           details: settings.credentials["_3DCart"]["Generic"]
-        Commands.insert
-          _id: input.commandId
-          progressBars: [
-            activityId: "_3DCartReadOrders", isStarted: true, isCompleted: false, isFailed: false
-          ]
-          isStarted: true, isCompleted: false, isFailed: false
       ]
 
   it "should run @fast", ->
@@ -71,11 +62,6 @@ describe "_3DCartReadOrders", ->
               console.log object
             object.hasOwnProperty("OrderID")
           , "Object has own property \"OrderID\""
-        .then ->
-          Commands.findOne(input.commandId)
-          .then (command) ->
-            command.progressBars[0].total.should.be.equal(306)
-            command.progressBars[0].current.should.be.equal(306)
         .then resolve
         .catch reject
         .finally recordingDone
