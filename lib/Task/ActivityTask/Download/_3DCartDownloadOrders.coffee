@@ -7,7 +7,7 @@ _3DCartSaveOrders = require "../../../Strategy/DBStrategy/Save/TemporaryTable/_3
 
 # This task leaks memory. Maybe it's promises, but who knows
 class _3DCartDownloadOrders extends Download
-  constructor: (input, options, streams, dependencies) ->
+  constructor: (input, options, dependencies) ->
     Match.check input, Match.ObjectIncluding
       _3DCartReadOrders: Object
       _3DCartSaveOrders: Object
