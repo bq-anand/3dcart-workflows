@@ -19,7 +19,7 @@ describe "_3DCartSaveOrders", ->
 
   _3DCartOrders = create_3DCartOrders bookshelf
 
-  task = null # shared between tests
+  strategy = null # shared between tests
 
   before ->
     Promise.bind(@)
@@ -30,13 +30,8 @@ describe "_3DCartSaveOrders", ->
     knex.destroy()
 
   beforeEach ->
-    task = new _3DCartSaveOrders(
+    strategy = new _3DCartSaveOrders(
       _.defaults {}, input
-    ,
-      activityId: "_3DCartSaveOrders"
-    ,
-      in: new stream.PassThrough({objectMode: true})
-      out: new stream.PassThrough({objectMode: true})
     ,
       dependencies
     )
@@ -54,17 +49,11 @@ describe "_3DCartSaveOrders", ->
           api: "_3DCart"
           scopes: ["*"]
           details: settings.credentials["_3DCart"]["Generic"]
-        Commands.insert
-          _id: input.commandId
-          progressBars: [
-            activityId: "_3DCartSaveOrders", isStarted: true, isFinished: false
-          ]
       ]
 
   it "should save new objects @fast", ->
-    task.in.write(sample)
-    task.in.end()
-    task.execute()
+    strategy.on "ready", -> strategy.insert(sample)
+    strategy.execute()
     .then ->
       knex(_3DCartOrders::tableName).count("id")
       .then (results) ->
@@ -73,32 +62,20 @@ describe "_3DCartSaveOrders", ->
       _3DCartOrders.where({InvoiceNumber: 24545}).fetch()
       .then (model) ->
         should.exist(model)
-    .then ->
-      Commands.findOne(input.commandId)
-      .then (command) ->
-        should.not.exist(command.progressBars[0].total)
-        command.progressBars[0].current.should.be.equal(1)
 
   it "should update existing objects @fast", ->
-    task.in.write(sample)
-    task.in.end()
-    task.execute()
+    strategy.on "ready", -> strategy.insert(sample)
+    strategy.execute()
     .then ->
-      task = new _3DCartSaveOrders(
+      strategy = new _3DCartSaveOrders(
         _.defaults {}, input
-      ,
-        activityId: "_3DCartSaveOrders"
-      ,
-        in: new stream.PassThrough({objectMode: true})
-        out: new stream.PassThrough({objectMode: true})
       ,
         dependencies
       )
-      task.in.write _.defaults
+      strategy.on "ready", -> strategy.insert _.defaults
         "InvoiceNumber": 344
       , sample
-      task.in.end()
-      task.execute()
+      strategy.execute()
     .then ->
       knex(_3DCartOrders::tableName).count("id")
       .then (results) ->

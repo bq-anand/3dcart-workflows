@@ -15,19 +15,17 @@ describe "_3DCartReadOrders", ->
   Commands = mongodb.collection("Commands")
   Issues = mongodb.collection("Issues")
 
-  task = null;
+  strategy = null;
 
   before ->
 
   beforeEach ->
-    task = new _3DCartReadOrders(
+    strategy = new _3DCartReadOrders(
       _.defaults
         params:
           datestart: "09/10/2013"
           dateend: "09/15/2013"
       , input
-    ,
-      activityId: "_3DCartReadOrders"
     ,
       dependencies
     )
@@ -51,13 +49,14 @@ describe "_3DCartReadOrders", ->
     @timeout(20000) if process.env.NOCK_BACK_MODE is "record"
     new Promise (resolve, reject) ->
       nock.back "test/fixtures/_3DCartReadOrders/normal.json", (recordingDone) ->
-        sinon.spy(task.out, "write")
-        sinon.spy(task.binding, "request")
-        task.execute()
+        onBindingRequest = sinon.spy(strategy.binding, "request")
+        onObjectSpy = sinon.spy()
+        strategy.on "object", onObjectSpy
+        strategy.execute()
         .then ->
-          task.binding.request.should.have.callCount(5)
-          task.out.write.should.have.callCount(306)
-          task.out.write.should.always.have.been.calledWithMatch sinon.match (object) ->
+          onBindingRequest.should.have.callCount(5)
+          onObjectSpy.should.have.callCount(306)
+          onObjectSpy.should.always.have.been.calledWithMatch sinon.match (object) ->
             if not object.hasOwnProperty("OrderID")
               console.log object
             object.hasOwnProperty("OrderID")
