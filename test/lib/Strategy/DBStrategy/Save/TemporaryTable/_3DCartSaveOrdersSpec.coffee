@@ -52,8 +52,12 @@ describe "_3DCartSaveOrders", ->
       ]
 
   it "should save new objects @fast", ->
-    strategy.on "ready", -> strategy.insert(sample)
-    strategy.execute()
+    knex.transaction (transaction) =>
+      strategy.transaction = transaction
+      Promise.bind(@)
+      .then -> strategy.start()
+      .then -> strategy.insert(sample)
+      .then -> strategy.finish()
     .then ->
       knex(_3DCartOrders::tableName).count("id")
       .then (results) ->
@@ -64,18 +68,33 @@ describe "_3DCartSaveOrders", ->
         should.exist(model)
 
   it "should update existing objects @fast", ->
-    strategy.on "ready", -> strategy.insert(sample)
-    strategy.execute()
+    Promise.bind(@)
     .then ->
-      strategy = new _3DCartSaveOrders(
-        _.defaults {}, input
-      ,
-        dependencies
-      )
-      strategy.on "ready", -> strategy.insert _.defaults
-        "InvoiceNumber": 344
-      , sample
-      strategy.execute()
+      knex.transaction (transaction) =>
+        strategy = new _3DCartSaveOrders(
+          _.defaults {}, input
+        ,
+          dependencies
+        )
+        strategy.transaction = transaction
+        Promise.bind(@)
+        .then -> strategy.start()
+        .then -> strategy.insert(sample)
+        .then -> strategy.finish()
+    .then ->
+      knex.transaction (transaction) =>
+        strategy = new _3DCartSaveOrders(
+          _.defaults {}, input
+        ,
+          dependencies
+        )
+        strategy.transaction = transaction
+        Promise.bind(@)
+        .then -> strategy.start()
+        .then -> strategy.insert _.defaults
+          "InvoiceNumber": 344
+        , sample
+        .then -> strategy.finish()
     .then ->
       knex(_3DCartOrders::tableName).count("id")
       .then (results) ->
