@@ -53,9 +53,8 @@ describe "_3DCartSaveOrders", ->
 
   it "should save new objects @fast", ->
     knex.transaction (transaction) =>
-      strategy.transaction = transaction
       Promise.bind(@)
-      .then -> strategy.start()
+      .then -> strategy.start(transaction)
       .then -> strategy.insert(sample)
       .then -> strategy.finish()
     .then ->
@@ -76,9 +75,8 @@ describe "_3DCartSaveOrders", ->
         ,
           dependencies
         )
-        strategy.transaction = transaction
         Promise.bind(@)
-        .then -> strategy.start()
+        .then -> strategy.start(transaction)
         .then -> strategy.insert(sample)
         .then -> strategy.finish()
     .then ->
@@ -88,9 +86,8 @@ describe "_3DCartSaveOrders", ->
         ,
           dependencies
         )
-        strategy.transaction = transaction
         Promise.bind(@)
-        .then -> strategy.start()
+        .then -> strategy.start(transaction)
         .then -> strategy.insert _.defaults
           "InvoiceNumber": 344
         , sample
