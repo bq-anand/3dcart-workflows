@@ -42,7 +42,10 @@ describe "_3DCartReadCustomers", ->
       ]
 
   it "should run @fast", ->
-    @timeout(20000) if process.env.NOCK_BACK_MODE is "record"
+    if process.env.NOCK_BACK_MODE is "record"
+      @timeout(20000)
+    else
+      @timeout(10000)
     new Promise (resolve, reject) ->
       nock.back "test/fixtures/_3DCartReadCustomers/normal.json", (recordingDone) ->
         onBindingRequest = sinon.spy(strategy.binding, "request")
