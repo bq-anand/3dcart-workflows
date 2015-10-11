@@ -1,0 +1,12 @@
+{
+  "CustomerGroupID": 1,
+  "Name": "Bellefit Test Group",
+  "Description": "TEST CUSTOMERS",
+  "MinimumOrder": 1,
+  "NonTaxable": false,
+  "AllowRegistration": false,
+  "DisableRewardPoints": false,
+  "AutoApprove": false,
+  "RegistrationMessage": "",
+  "PriceLevel": 1
+}

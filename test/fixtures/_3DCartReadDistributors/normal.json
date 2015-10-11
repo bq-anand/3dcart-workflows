@@ -1,0 +1,25 @@
+[
+    {
+        "scope": "https://apirest.3dcart.com:443",
+        "method": "GET",
+        "path": "/3dCartWebAPI/v1/Distributors?countonly=1",
+        "body": "",
+        "status": 200,
+        "response": {
+            "TotalCount": 0
+        },
+        "headers": {
+            "cache-control": "no-cache",
+            "pragma": "no-cache",
+            "content-type": "application/json; charset=utf-8",
+            "expires": "-1",
+            "server": "",
+            "x-aspnet-version": "4.0.30319",
+            "x-powered-by": "",
+            "access-control-allow-origin": "*",
+            "date": "Fri, 09 Oct 2015 14:58:48 GMT",
+            "connection": "close",
+            "content-length": "16"
+        }
+    }
+]

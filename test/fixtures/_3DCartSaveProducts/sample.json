@@ -1,0 +1,337 @@
+{
+  "SKUInfo": {
+    "CatalogID": 11,
+    "SKU": "CORSET",
+    "Name": "Girdle w/Hooks (Corset)",
+    "Cost": 13.75,
+    "Price": 108.75,
+    "RetailPrice": 145,
+    "SalePrice": 108.75,
+    "OnSale": false,
+    "Stock": 1307
+  },
+  "MFGID": "",
+  "ShortDescription": "Bellefit Girdle with front hooks (Corset)",
+  "ManufacturerID": 1,
+  "DistributorList": [],
+  "LastUpdate": "2013-05-06T15:40:01",
+  "UserID": null,
+  "GTIN": "",
+  "CategoryList": [
+    {
+      "CategoryID": 8,
+      "CategoryName": "Bellefit Girdles"
+    }
+  ],
+  "NonTaxable": false,
+  "NotForSale": false,
+  "Hide": false,
+  "GiftCertificate": false,
+  "HomeSpecial": true,
+  "CategorySpecial": false,
+  "NonSearchable": false,
+  "GiftWrapItem": false,
+  "ShipCost": 0,
+  "Weight": 1,
+  "Height": 0,
+  "Width": 0,
+  "Depth": 0,
+  "SelfShip": false,
+  "FreeShipping": true,
+  "RewardPoints": 0,
+  "RedeemPoints": 0,
+  "DisableRewards": false,
+  "StockAlert": -10000,
+  "ReorderQuantity": 0,
+  "InStockMessage": "In-Stock",
+  "OutOfStockMessage": "In-Stock",
+  "BackOrderMessage": "In-Stock",
+  "WarehouseLocation": "",
+  "WarehouseBin": "",
+  "WarehouseAisle": "",
+  "WarehouseCustom": "",
+  "Description": "The Corset is adjustable and has two rows of hook and eye closures in the front that are separated by an inch apart so you may tighten the girdle when additional compression is needed as you progress during your childbirth recovery. The hook and eye closures are designed with the C-Section incision in mind however it is an excellent option for either delivery method.",
+  "Keywords": "",
+  "ExtraField1": "",
+  "ExtraField2": "",
+  "ExtraField3": "",
+  "ExtraField4": "",
+  "ExtraField5": "",
+  "ExtraField6": "<strong>Directions</strong><br />\r\nBegin wearing after birth on the day that you are discharged from the hospital. It's optimal to begin wearing Bellefit right after birth; however, you will still see results if you begin to wear your girdle at any time during the first 6 months after the delivery.<br><br> Here's why: Still present after childbirth for up to 6 months\r\nare hormones secreted during pregnancy. These hormones, Estrogen, progesterone and relaxin loosen the abdominal muscles, the pelvic structure and supporting ligaments and joints. Bellefit works together with your body's natural process of recovery.\r\n<br><br>\r\nThe Girdle/Corset acts to retract the body by drawing in stretched muscles and provides medical-grade compression to your abdominal area. We have even heard great testimonies from Moms that began using Bellefit up to 8-10 months postpartum and were able to benefit greatly from its use.<br /><br />",
+  "ExtraField7": "736211297938",
+  "ExtraField8": "<iframe width=\"640\" height=\"360\" src=\"https://www.youtube.com/embed/dHMOi__XyiM?rel=0\" frameborder=\"0\" allowfullscreen></iframe>\r\n<h2>Need Sizing Help?<h2/> Bellefit Girdles are Ultra-Firm Slim Fit\r\n<a href=\"http://www.bellefit.com/choosing-and-sizing.php\"><img alt=\"\" src=\"assets/images/images-bellefit-online-sizing-tab-xs-xl.jpg\" border=\"0px\"><br /><br /><a/>\r\n\r\n\r\n",
+  "ExtraField9": "<strong>Satisfaction Guaranteed</strong><br/><br/>\r\nIn the unlikely event that you are not completely satisfied with your purchase please notify us immediately.<br/><br/>\r\n\r\nYour satisfaction is our priority. We stand proud at our brand’s reputation for high-quality manufacturing and design. We want to resolve any issue that you might have immediately! <br/><br/>\r\n\r\nWe love to hear from you whether it’s praises or concerns. Our customer service department is available to assist you Mon-Fri 9am-5pm EST at 888-894-2951 or write to us via email customerservice@bellefit.com<br/><br/><br/>\r\n<strong>30-day Return Policy</strong><br/><br/>\r\nSend back your product along with your return form within 30 days for a full refund of the purchase price. We only accept returns for items that have not been used or worn, modified, altered, or washed. The product’s tags must still be attached, and the packaging intact. <br/>\r\n\r\n• Refunds are processed within 7 to 10 business days from the date your package arrives at our warehouse for processing. <br/>\r\n\r\n• Only items that were directly purchased from Bellefit.com can be accepted. <br/>\r\n\r\n• If the product you are returning was a gift, we will refund the original purchaser. <br/>\r\n\r\n• Shipping & handling cannot be refunded.<br/><br/>\r\n\r\n<strong>Email updates and tracking</strong><br/><br/>\r\nProcessing your order status is fast and easy.<br/>\r\n\r\nReceive email updates from our customer service \r\ndepartment throughout the return process.<br/>",
+  "ExtraField10": "Bellefit ships to over 100 countries via FedEx or US Postal Service.  The best way to get a precise shipping quote and delivery time frame is to enter your shipping address after adding your product to the shopping cart, then press continue. The next screen will give you options between $35-$90. FedEx delivers in 1-2 business days and USPS on average of 5-12.<br/><br/>\r\n\r\nWhen ordering from Bellefit, Inc. the recipient is the importer of record and must comply with all laws and regulations of the destination country including Customs Duty Charges, Import taxes, Clearance fees and any applicable local/municipal/state fees in the destination country.",
+  "ExtraField11": "<img alt=\"\" src=\"assets/images/images-sizing-tab-bellefit.jpg\" border=\"0px\"><br/><br/>\r\n\r\n<ul>\r\nView your <a href=\"https://store.bellefit.com/myaccount.asp?action=login\">Order Status</a> 24/7\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>Free shipping on all USA orders.</li>\r\n\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>Free shipping avaiable for the <a href=\"https://store.bellefit.com/dualgirdle.php\">Dual-Closure</a>, <a href=\"https://store.bellefit.com/corset.php\">Corset</a>, <a href=\"https://store.bellefit.com/girdlezipper.php\">Girdle with zipper</a>, <a href=\"https://store.bellefit.com/girdle.php\">Pull-up</a> and <a href=\"http://www.bellefit.com/bundles.php\">Bundles</a> </li>\r\n\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>All shipments will be issued a US Postal Service or FedEx tracking number<li>Your Tracking number will be emailed once your order is fulfilled by Bellefit's shipping dept.</li>\r\n\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>USPS Priority mail estimated delivery time to most locations in the USA is 2-3 business days.</li>\r\n\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>Bellefit does not ship on Weekends or on Federal Holidays observed in the USA</li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\r\n\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\r\n\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>Offer is not redeemable for cash or store credit</li>\r\n\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>Promotion value cannot be used towards International and/or Expedited shipping costs</li>\r\n\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>USPS delivery time estimate is not guaranteed, some states may take more than 2-3 business days</li>\r\n\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>Any questions or special requests please <a href=\"http://www.bellefit.com/customerservice.php\">contact us</a> toll-free at 888-894-2951 or 954-727-1899</li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n",
+  "ExtraField12": "<ul>\r\n<li><strong>What are the main benefits of the Corset?</strong><br/>\r\nThe Corset is adjustable and has two rows of hook and eye closures in the front that are separated by an inch apart.  As your body transforms after your delivery, you can adjust the setting when slightly more or less compression is needed.<br/><br/>\r\nThe Corset also has a convenient crotch are closure that allows you to use the restroom or change your underwear and pads comfortably without needing to take it off each time. <br/><br/></li>\r\n\r\n<li><strong>What is the difference between the Dual Girdle and Corset?</strong><br/>\r\nBoth the Corset and Dual-closure are Bellefit’s most popular styles since they can be used after either delivery method and offer the most adjustment options, making them ideal for all body types (Hourglass/Triangle/Rectangle/Hourglass/Oval).<br/><br/>\r\n\r\nThe Dual-Closure and the Corset are both adjustable and have two rows of front hook and eye closures that are separated by an inch apart. They can be adjusted so as time goes by, you can tighten (or loosen) your girdle when slightly more or less compression is needed. The main difference between the two styles is that the Dual-Closure (also known as a Double Corset) has the side zipper closure as well. Underneath the zipper are two sets of adjustable hook and eye closures (one near the top and one near the bottom).<br/><br/>\r\n\r\nThe Dual-Closure and the Corset are both adjustable and have two rows of front hook and eye closures that are separated by an inch apart. They can be adjusted so as time goes by, you can tighten (or loosen) your girdle when slightly more or less compression is needed. The main difference between the two styles is that the Dual-Closure (also known as a Double Corset) has the side zipper closure as well. Underneath the zipper are two sets of adjustable hook and eye closures (one near the top and one near the bottom).<br/><br/>\r\n\r\nBecause it has both closure options, the Dual-Closure is able to be adjusted the most out of all of the other styles. Many moms like having the option of both closures in one girdle to also be able to choose which method is more convenient for them throughout their recovery. For example, in the beginning when your swelling is at its peak, you may find that it is easier for you to use just the front closure. Once you get a little farther along you may find that just using the zipper closure is more convenient for you. <br/><br/>\r\n\r\nIf you still need help deciding which style is best for you, feel free to give us a call and speak to one of our specialists for personalized size and style suggestions. <br/><br/>\r\n</li>\r\n\r\n\r\n<li><strong>Can I wear a Corset after a c-section?</strong><br/>\r\nYes!  The front hook and eye closures of the Corset are designed with the incision in mind. </li><br/>\r\n<li><strong>Can you see it underneath my clothes?</strong><br/>\r\nThe Corset is not bulky and is flush with your skin; however because of the closure location, it may be slightly visible underneath certain fabrics or if you are wearing a fitted top.  Keep in mind though that your comfort and healing process is the most important factor! <br/><br/> </li>\r\n<li><strong>I had a natural delivery.  Can I still use the Corset style?</strong><br/>\r\nYes!  The Corset is an excellent option for either delivery method. <br/><br/> </li>\r\n<li><strong>I am unsure of my delivery method. Is the Corset still recommended?</strong><br/>\r\nYes!  The Corset is an excellent option for either delivery method. <br/><br/> </li>\r\n<li><strong>I am not pregnant but have had abdominal surgery.  Can I still use the Corset style?</strong><br/>\r\nYes!  The Corset is recommended in the case of an abdominal surgery that may or may not be the result of a pregnancy. <br/><br/></li>\r\n<li><strong>Is the Corset adjustable?</strong><br/>\r\nYes.  There are two rows of the hook and eye closures that are separated by an inch apart so you can tighten your girdle when more or less compression is needed throughout your recovery.<br/><br/></li>\r\n<li><strong>What body type is best for a Corset?</strong><br/>\r\nSince the Corset is adjustable, it is suitable for all body shape types.<br/>\r\n(Triangle/Inverted Triangle/Hourglass/Rectangle) </li><br/>\r\n<li><strong>When can I start wearing my Corset?</strong><br/>\r\nBegin wearing your Corset the day that you are discharged from the hospital or as soon as you are ready to wear it after the delivery. It's optimal to begin wearing Bellefit right after birth; however, you will still see results if you begin to wear your girdle at any time during the first 6 months after the delivery.  As always, consult with your physician to make sure the Corset is right for you since every recovery process is so unique. <br/> </li>\r\n</ul>\r\n",
+  "ExtraField13": "",
+  "FeatureList": [],
+  "PluginList": {},
+  "MainImageFile": "assets/images/bellefit-corset-1.jpg",
+  "MainImageCaption": "",
+  "ThumbnailFile": "assets/images/bellefit-corset-1_thumbnail.jpg",
+  "MediaFile": "",
+  "AdditionalImageFile2": "assets/images/Bellefit-Corset-2.jpg",
+  "AdditionalImageCaption2": "",
+  "AdditionalImageFile3": "assets/images/Bellefit-Corset-3.jpg",
+  "AdditionalImageCaption3": "",
+  "AdditionalImageFile4": "assets/images/Bellefit-Corset-5.jpg",
+  "AdditionalImageCaption4": "",
+  "ImageGalleryList": [
+    {
+      "ImageGalleryID": 10,
+      "ImageGalleryFile": "assets/images/Bellefit-Corset-6.jpg",
+      "ImageGalleryCaption": "",
+      "ImageGallerySorting": 0
+    },
+    {
+      "ImageGalleryID": 1,
+      "ImageGalleryFile": "assets/images/Rachel_Bellefit.jpg",
+      "ImageGalleryCaption": "",
+      "ImageGallerySorting": 0
+    },
+    {
+      "ImageGalleryID": 11,
+      "ImageGalleryFile": "assets/images/Bellefit-Corset-8.jpg",
+      "ImageGalleryCaption": "",
+      "ImageGallerySorting": 0
+    },
+    {
+      "ImageGalleryID": 9,
+      "ImageGalleryFile": "assets/images/Bellefit-Corset-7.jpg",
+      "ImageGalleryCaption": "",
+      "ImageGallerySorting": 0
+    },
+    {
+      "ImageGalleryID": 8,
+      "ImageGalleryFile": "assets/images/Bellefit-Corset-4.jpg",
+      "ImageGalleryCaption": "",
+      "ImageGallerySorting": 0
+    }
+  ],
+  "OptionSetList": [
+    {
+      "OptionSetID": 9,
+      "OptionSetName": "Size",
+      "OptionSorting": 0,
+      "OptionRequired": true,
+      "OptionType": "Dropdown",
+      "OptionURL": "",
+      "OptionAdditionalInformation": "",
+      "OptionSizeLimit": 0,
+      "OptionList": [
+        {
+          "OptionID": 4,
+          "OptionName": "XS 32.5\" - 35\"",
+          "OptionSelected": false,
+          "OptionHide": false,
+          "OptionValue": 0,
+          "OptionPartNumber": "",
+          "OptionSorting": 1,
+          "OptionImagePath": "",
+          "OptionBundleCatalogId": 0,
+          "OptionBundleQuantity": 1
+        },
+        {
+          "OptionID": 5,
+          "OptionName": "S 35.5\" - 39.5\"",
+          "OptionSelected": false,
+          "OptionHide": false,
+          "OptionValue": 0,
+          "OptionPartNumber": "",
+          "OptionSorting": 2,
+          "OptionImagePath": "",
+          "OptionBundleCatalogId": 0,
+          "OptionBundleQuantity": 1
+        },
+        {
+          "OptionID": 6,
+          "OptionName": "M 40\" - 43\"",
+          "OptionSelected": false,
+          "OptionHide": false,
+          "OptionValue": 0,
+          "OptionPartNumber": "",
+          "OptionSorting": 3,
+          "OptionImagePath": "",
+          "OptionBundleCatalogId": 0,
+          "OptionBundleQuantity": 1
+        },
+        {
+          "OptionID": 7,
+          "OptionName": "L 43.5\" - 47\"",
+          "OptionSelected": false,
+          "OptionHide": false,
+          "OptionValue": 0,
+          "OptionPartNumber": "",
+          "OptionSorting": 4,
+          "OptionImagePath": "",
+          "OptionBundleCatalogId": 0,
+          "OptionBundleQuantity": 1
+        },
+        {
+          "OptionID": 8,
+          "OptionName": "XL 47.5\" - 52\"",
+          "OptionSelected": false,
+          "OptionHide": false,
+          "OptionValue": 0,
+          "OptionPartNumber": "",
+          "OptionSorting": 5,
+          "OptionImagePath": "",
+          "OptionBundleCatalogId": 0,
+          "OptionBundleQuantity": 1
+        },
+        {
+          "OptionID": 434,
+          "OptionName": "Select Size",
+          "OptionSelected": false,
+          "OptionHide": false,
+          "OptionValue": 0,
+          "OptionPartNumber": "",
+          "OptionSorting": 0,
+          "OptionImagePath": "",
+          "OptionBundleCatalogId": 0,
+          "OptionBundleQuantity": 1
+        }
+      ]
+    }
+  ],
+  "AdvancedOptionList": [
+    {
+      "AdvancedOptionCode": "4",
+      "AdvancedOptionSufix": "CORSET-XS",
+      "AdvancedOptionName": "(XS) X-Small: 32.5",
+      "AdvancedOptionCost": 13.75,
+      "AdvancedOptionStock": -494,
+      "AdvancedOptionWeight": 1,
+      "AdvancedOptionPrice": 108.75,
+      "AdvancedOptionGTIN": ""
+    },
+    {
+      "AdvancedOptionCode": "5",
+      "AdvancedOptionSufix": "CORSET-S",
+      "AdvancedOptionName": "(S) Small: 35.5",
+      "AdvancedOptionCost": 13.75,
+      "AdvancedOptionStock": -1711,
+      "AdvancedOptionWeight": 1,
+      "AdvancedOptionPrice": 108.75,
+      "AdvancedOptionGTIN": ""
+    },
+    {
+      "AdvancedOptionCode": "6",
+      "AdvancedOptionSufix": "CORSET-M",
+      "AdvancedOptionName": "(M) Medium: 40",
+      "AdvancedOptionCost": 13.75,
+      "AdvancedOptionStock": -1600,
+      "AdvancedOptionWeight": 1,
+      "AdvancedOptionPrice": 108.75,
+      "AdvancedOptionGTIN": ""
+    },
+    {
+      "AdvancedOptionCode": "7",
+      "AdvancedOptionSufix": "CORSET-L",
+      "AdvancedOptionName": "(L) Large: 43.5",
+      "AdvancedOptionCost": 13.75,
+      "AdvancedOptionStock": -859,
+      "AdvancedOptionWeight": 1,
+      "AdvancedOptionPrice": 108.75,
+      "AdvancedOptionGTIN": ""
+    },
+    {
+      "AdvancedOptionCode": "8",
+      "AdvancedOptionSufix": "CORSET-XL",
+      "AdvancedOptionName": "(XL) X-Large: 47.5",
+      "AdvancedOptionCost": 13.75,
+      "AdvancedOptionStock": -307,
+      "AdvancedOptionWeight": 1,
+      "AdvancedOptionPrice": 108.75,
+      "AdvancedOptionGTIN": ""
+    }
+  ],
+  "RelatedProductList": [
+    {
+      "RelatedIndexID": 15,
+      "RelatedProductID": 16,
+      "RelatedProductSorting": 1
+    },
+    {
+      "RelatedIndexID": 16,
+      "RelatedProductID": 18,
+      "RelatedProductSorting": 2
+    },
+    {
+      "RelatedIndexID": 17,
+      "RelatedProductID": 19,
+      "RelatedProductSorting": 3
+    }
+  ],
+  "UpSellingItemList": [
+    {
+      "UpSellingIndexID": 18,
+      "UpSellingItemID": 48,
+      "UpSellingItemSorting": 0
+    },
+    {
+      "UpSellingIndexID": 7,
+      "UpSellingItemID": 15,
+      "UpSellingItemSorting": 0
+    },
+    {
+      "UpSellingIndexID": 6,
+      "UpSellingItemID": 14,
+      "UpSellingItemSorting": 0
+    }
+  ],
+  "DiscountList": [],
+  "DoNotUseCategoryOptions": false,
+  "DateCreated": "2012-03-01T00:00:00",
+  "ListingTemplateID": 1,
+  "ListingTemplateName": "",
+  "LoginRequiredOptionID": null,
+  "LoginRequiredOptionName": "",
+  "LoginRequiredOptionRedirectTo": "",
+  "AllowAccessCustomerGroupID": null,
+  "AllowAccessCustomerGroupName": null,
+  "RMAMaxPeriod": "",
+  "TaxCode": "",
+  "DisplayText": "",
+  "MinimumQuantity": 1,
+  "MaximumQuantity": 0,
+  "AllowOnlyMultiples": false,
+  "AllowFractionalQuantity": false,
+  "QuantityOptions": "",
+  "GroupOptionsForQuantityPricing": false,
+  "ApplyQuantityDiscountToOptions": true,
+  "EnableMakeAnOfferFeature": false,
+  "MinimumAcceptableOffer": "",
+  "PriceLevel1": 0,
+  "PriceLevel1Hide": false,
+  "PriceLevel2": 108.75,
+  "PriceLevel2Hide": false,
+  "PriceLevel3": 0,
+  "PriceLevel3Hide": false,
+  "PriceLevel4": 0,
+  "PriceLevel4Hide": false,
+  "PriceLevel5": 0,
+  "PriceLevel5Hide": false,
+  "PriceLevel6": 0,
+  "PriceLevel6Hide": false,
+  "PriceLevel7": 0,
+  "PriceLevel7Hide": false,
+  "PriceLevel8": 0,
+  "PriceLevel8Hide": false,
+  "PriceLevel9": 0,
+  "PriceLevel9Hide": false,
+  "PriceLevel10": 0,
+  "PriceLevel10Hide": false,
+  "BuyButtonLink": "",
+  "ProductLink": "http://bellefitdevelopment.3dcartstores.com/corset.php",
+  "Title": "Corsets for pregnant women | Abdominal Girdle | Corset for weight loss | corset pregnancy | corsets and girdles",
+  "CustomFileName": "corset.php",
+  "RedirectLink": "",
+  "MetaTags": "<META NAME=\"DESCRIPTION\" CONTENT=\"The Bellefit C Section Recovery Corset offers medical-grade support and compression to the postpartum woman. The Corset protects the c section incision and help reduce with back pain. Lose the post pregnancy tummy faster and feel supported with Bellefit.\r\n\">\r\n<META NAME=\"ABSTRACT\" CONTENT=\"corset girdle for women available in 5 sizes. Medical quality.\r\n\">\r\n<META NAME=\"KEYWORDS\" CONTENT=\"corset girdle, girdle corset, girdles women, c section recovery, women girdles, girdle for women, girdle women, girdle women, corsets girdles, belly binder, corset medical, corset for weight loss, corset pregnancy, abdominal corset, c section binder, abdomen corset\r\n\">\r\n",
+  "SpecialInstructions": "",
+  "AssignKey": false,
+  "ReUseKeys": false,
+  "SerialList": [],
+  "EProductList": []
+}

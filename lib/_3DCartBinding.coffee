@@ -43,4 +43,46 @@ class _3DCartBinding extends Binding
       json: json
     , options
 
+  getCustomerGroups: (qs, options) ->
+    @request _.extend
+      method: "GET"
+      url: "/CustomerGroups"
+      qs: qs
+    , options
+
+  getCustomers: (qs, options) ->
+    @request _.extend
+      method: "GET"
+      url: "/Customers"
+      qs: qs
+    , options
+
+  getDistributors: (qs, options) ->
+    @request _.extend
+      method: "GET"
+      url: "/Distributors"
+      qs: qs
+    , options
+
+  getCategories: (qs, options) ->
+    @request _.extend
+      method: "GET"
+      url: "/Categories"
+      qs: qs
+    , options
+
+  getProducts: (qs, options) ->
+    @request _.extend
+      method: "GET"
+      url: "/Products"
+      qs: qs
+    , options
+
+  getManufacturers: (qs, options) ->
+    @request _.extend
+      method: "GET"
+      url: "/Manufacturers"
+      qs: qs
+    , options
+
 module.exports = _3DCartBinding

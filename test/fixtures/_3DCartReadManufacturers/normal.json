@@ -1,0 +1,60 @@
+[
+    {
+        "scope": "https://apirest.3dcart.com:443",
+        "method": "GET",
+        "path": "/3dCartWebAPI/v1/Manufacturers?countonly=1",
+        "body": "",
+        "status": 200,
+        "response": {
+            "TotalCount": 1
+        },
+        "headers": {
+            "cache-control": "no-cache",
+            "pragma": "no-cache",
+            "content-type": "application/json; charset=utf-8",
+            "expires": "-1",
+            "server": "",
+            "x-aspnet-version": "4.0.30319",
+            "x-powered-by": "",
+            "access-control-allow-origin": "*",
+            "date": "Fri, 09 Oct 2015 15:56:11 GMT",
+            "connection": "close",
+            "content-length": "16"
+        }
+    },
+    {
+        "scope": "https://apirest.3dcart.com:443",
+        "method": "GET",
+        "path": "/3dCartWebAPI/v1/Manufacturers?limit=100&offset=1",
+        "body": "",
+        "status": 200,
+        "response": [
+            {
+                "ManufacturerID": 1,
+                "ManufacturerName": "BELLEFIT, INC",
+                "Logo": "",
+                "Sorting": 0,
+                "Header": "",
+                "Website": "www.bellefit.com",
+                "UserID": "Administrator",
+                "LastUpdate": "2012-02-17T21:01:03",
+                "PageTitle": "medical-grade postpartum girdles",
+                "MetaTags": "bellefit postpartum girdles",
+                "RedirectURL": ""
+            }
+        ],
+        "headers": {
+            "cache-control": "no-cache",
+            "pragma": "no-cache",
+            "content-type": "application/json; charset=utf-8",
+            "expires": "-1",
+            "server": "",
+            "x-aspnet-version": "4.0.30319",
+            "x-powered-by": "",
+            "access-control-allow-origin": "*",
+            "date": "Fri, 09 Oct 2015 15:56:11 GMT",
+            "connection": "close",
+            "content-length": "285"
+        }
+    }
+]

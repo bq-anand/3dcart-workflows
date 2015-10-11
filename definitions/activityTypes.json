@@ -50,5 +50,83 @@
     "defaultTaskStartToCloseTimeout": "1800",
     "defaultTaskScheduleToCloseTimeout": "NONE",
     "description": ""
+  },
+  {
+    "name": "_3DCartDownloadDistributors",
+    "version": "1.0.0",
+    "defaultTaskList": {
+      "name": "_3DCartDownloadDistributors"
+    },
+    "defaultTaskHeartbeatTimeout": "1800",
+    "defaultTaskPriority": "0",
+    "defaultTaskScheduleToStartTimeout": "3600",
+    "defaultTaskStartToCloseTimeout": "1800",
+    "defaultTaskScheduleToCloseTimeout": "NONE",
+    "description": ""
+  },
+  {
+    "name": "_3DCartDownloadCategories",
+    "version": "1.0.0",
+    "defaultTaskList": {
+      "name": "_3DCartDownloadCategories"
+    },
+    "defaultTaskHeartbeatTimeout": "1800",
+    "defaultTaskPriority": "0",
+    "defaultTaskScheduleToStartTimeout": "3600",
+    "defaultTaskStartToCloseTimeout": "1800",
+    "defaultTaskScheduleToCloseTimeout": "NONE",
+    "description": ""
+  },
+  {
+    "name": "_3DCartDownloadCustomerGroups",
+    "version": "1.0.0",
+    "defaultTaskList": {
+      "name": "_3DCartDownloadCustomerGroups"
+    },
+    "defaultTaskHeartbeatTimeout": "1800",
+    "defaultTaskPriority": "0",
+    "defaultTaskScheduleToStartTimeout": "3600",
+    "defaultTaskStartToCloseTimeout": "1800",
+    "defaultTaskScheduleToCloseTimeout": "NONE",
+    "description": ""
+  },
+  {
+    "name": "_3DCartDownloadCustomers",
+    "version": "1.0.0",
+    "defaultTaskList": {
+      "name": "_3DCartDownloadCustomers"
+    },
+    "defaultTaskHeartbeatTimeout": "1800",
+    "defaultTaskPriority": "0",
+    "defaultTaskScheduleToStartTimeout": "3600",
+    "defaultTaskStartToCloseTimeout": "1800",
+    "defaultTaskScheduleToCloseTimeout": "NONE",
+    "description": ""
+  },
+  {
+    "name": "_3DCartDownloadManufacturers",
+    "version": "1.0.0",
+    "defaultTaskList": {
+      "name": "_3DCartDownloadManufacturers"
+    },
+    "defaultTaskHeartbeatTimeout": "1800",
+    "defaultTaskPriority": "0",
+    "defaultTaskScheduleToStartTimeout": "3600",
+    "defaultTaskStartToCloseTimeout": "1800",
+    "defaultTaskScheduleToCloseTimeout": "NONE",
+    "description": ""
+  },
+  {
+    "name": "_3DCartDownloadProducts",
+    "version": "1.0.0",
+    "defaultTaskList": {
+      "name": "_3DCartDownloadProducts"
+    },
+    "defaultTaskHeartbeatTimeout": "1800",
+    "defaultTaskPriority": "0",
+    "defaultTaskScheduleToStartTimeout": "3600",
+    "defaultTaskStartToCloseTimeout": "1800",
+    "defaultTaskScheduleToCloseTimeout": "NONE",
+    "description": ""
   }
 ]

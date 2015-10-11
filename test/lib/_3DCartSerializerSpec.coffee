@@ -4,12 +4,12 @@ stream = require "readable-stream"
 createDependencies = require "../../core/helper/dependencies"
 settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/test.json")
 
-_3DCartSerializer = require "../../lib/_3DCartSerializer"
+_3DCartOrdersSerializer = require "../../lib/Serializer/_3DCartOrdersSerializer"
 create_3DCartOrders = require "../../lib/Model/_3DCartOrders"
 sample = require "#{process.env.ROOT_DIR}/test/fixtures/_3DCartSaveOrders/sample.json"
 
-describe "_3DCartSerializer", ->
-  dependencies = createDependencies(settings, "_3DCartSerializer")
+describe "_3DCartOrdersSerializer", ->
+  dependencies = createDependencies(settings, "_3DCartOrdersSerializer")
   knex = dependencies.knex; bookshelf = dependencies.bookshelf
 
   _3DCartOrder = create_3DCartOrders bookshelf
@@ -20,7 +20,7 @@ describe "_3DCartSerializer", ->
     knex.destroy()
 
   beforeEach ->
-    serializer = new _3DCartSerializer
+    serializer = new _3DCartOrdersSerializer
       model: _3DCartOrder
 
   it "should be idempotent @fast", ->

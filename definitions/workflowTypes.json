@@ -10,5 +10,17 @@
     "defaultTaskPriority": "0",
     "defaultChildPolicy": "REQUEST_CANCEL",
     "description": ""
+  },
+  {
+    "name": "_3DCartDownloadDatabase",
+    "version": "1.0.0",
+    "defaultTaskList": {
+      "name": "_3DCartDownloadDatabase"
+    },
+    "defaultExecutionStartToCloseTimeout": "3600",
+    "defaultTaskStartToCloseTimeout": "1800",
+    "defaultTaskPriority": "0",
+    "defaultChildPolicy": "REQUEST_CANCEL",
+    "description": ""
   }
 ]

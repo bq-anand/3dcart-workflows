@@ -1,0 +1,71 @@
+[
+    {
+        "scope": "https://apirest.3dcart.com:443",
+        "method": "GET",
+        "path": "/3dCartWebAPI/v1/CustomerGroups?countonly=1",
+        "body": "",
+        "status": 200,
+        "response": {
+            "TotalCount": 2
+        },
+        "headers": {
+            "cache-control": "no-cache",
+            "pragma": "no-cache",
+            "content-type": "application/json; charset=utf-8",
+            "expires": "-1",
+            "server": "",
+            "x-aspnet-version": "4.0.30319",
+            "x-powered-by": "",
+            "access-control-allow-origin": "*",
+            "date": "Thu, 08 Oct 2015 13:28:25 GMT",
+            "connection": "close",
+            "content-length": "16"
+        }
+    },
+    {
+        "scope": "https://apirest.3dcart.com:443",
+        "method": "GET",
+        "path": "/3dCartWebAPI/v1/CustomerGroups?limit=100&offset=1",
+        "body": "",
+        "status": 200,
+        "response": [
+            {
+                "CustomerGroupID": 1,
+                "Name": "Bellefit Test Group",
+                "Description": "TEST CUSTOMERS",
+                "MinimumOrder": 1,
+                "NonTaxable": false,
+                "AllowRegistration": false,
+                "DisableRewardPoints": false,
+                "AutoApprove": false,
+                "RegistrationMessage": "",
+                "PriceLevel": 1
+            },
+            {
+                "CustomerGroupID": 2,
+                "Name": "Test Group",
+                "Description": "Testing 123",
+                "MinimumOrder": 101.25,
+                "NonTaxable": false,
+                "AllowRegistration": false,
+                "DisableRewardPoints": false,
+                "AutoApprove": false,
+                "RegistrationMessage": "",
+                "PriceLevel": 1
+            }
+        ],
+        "headers": {
+            "cache-control": "no-cache",
+            "pragma": "no-cache",
+            "content-type": "application/json; charset=utf-8",
+            "expires": "-1",
+            "server": "",
+            "x-aspnet-version": "4.0.30319",
+            "x-powered-by": "",
+            "access-control-allow-origin": "*",
+            "date": "Thu, 08 Oct 2015 13:28:26 GMT",
+            "connection": "close",
+            "content-length": "460"
+        }
+    }
+]
