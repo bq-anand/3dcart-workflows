@@ -11,7 +11,7 @@ class _3DCartBinding extends Binding
 
   request: (options) ->
     _.defaults options,
-      baseUrl: "https://apirest.3dcart.com/3dCartWebAPI/v1"
+      baseUrl: "#{if @credential.details.noProxy then "https" else "http"}://apirest.3dcart.com/3dCartWebAPI/v1" # sorry for noProxy hack, but the full-fledged implementation requires a Redis rate limiter
       json: true
       headers: {}
     # 3DCart uses a homegrown authentication mechanism
