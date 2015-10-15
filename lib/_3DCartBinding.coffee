@@ -20,7 +20,6 @@ class _3DCartBinding extends Binding
       PrivateKey: @credential.details.privateKey
       Token: @credential.details.token
     super
-    .spread @checkStatusCode
     .spread (response, body) ->
       if body[0]?.Key is "Error"
         throw new errors.RuntimeError
